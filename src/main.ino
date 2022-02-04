@@ -48,7 +48,7 @@ void loop() {
       // current_time - start_time 為執行時間 如果大於設定的 RESET_TIME 也要重製
       if(start_time > current_time || current_time - start_time >= RESET_TIME*1000){
           //重置時暗掉
-          digitalWrite(13, LOW)
+          digitalWrite(13, LOW);
           // 重置
           resetFunc();
       }
