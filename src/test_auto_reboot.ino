@@ -2,7 +2,7 @@
 unsigned long RESET_TIME = 180;
 
 //記錄開始時間
-unsigned long start_time = millis();
+unsigned long start_time = 0;
 
 //定義重新開機
 void(* resetFunc) (void) = 0;
@@ -13,6 +13,9 @@ void setup() {
   digitalWrite(13, LOW);
   delay(1000);
   digitalWrite(13, HIGH);
+
+  // 紀錄 setup() 完成時間
+  start_time = millis();
 }
 
 void loop() {
