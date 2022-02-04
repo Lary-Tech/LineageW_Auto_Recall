@@ -18,11 +18,7 @@ void clickF12();
 void releaseKey();
 
 void setup(){
-  //開機完成亮燈
-  pinMode(13, OUTPUT);
-  digitalWrite(13, HIGH);
-
-  Serial.begin(9600);  
+  Serial.begin(9600);
   
   // 初始化 ld3320
   Voice.init(MIC);                                
@@ -41,14 +37,13 @@ void loop() {
   {
     case 0:
       clickF12();
-      break;   
+      releaseKey();
+      break;
     default:
       unsigned long current_time = millis();
       // start_time > current_time 代表連續執行超過50天 start_time 歸 0
       // current_time - start_time 為執行時間 如果大於設定的 RESET_TIME 也要重製
       if(start_time > current_time || current_time - start_time >= RESET_TIME*1000){
-          //重置時暗掉
-          digitalWrite(13, LOW);
           // 重置
           resetFunc();
       }
@@ -63,8 +58,6 @@ void clickF12(){
   
   //持續 1s
   delay(1000);
-  
-  releaseKey();
 }
 
 void releaseKey(){
