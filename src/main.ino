@@ -31,7 +31,7 @@ void setup(){
   Voice.voiceMaxLength(22);              
   Voice.start();
 
-  start_time = millis()
+  start_time = millis();
 }
 
 
