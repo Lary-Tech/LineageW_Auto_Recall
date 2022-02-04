@@ -32,6 +32,7 @@ void setup(){
 
 
 void loop() {
+  digitalWrite(13, HIGH);
   // 如果 read 到 0
   switch(Voice.read())
   {
@@ -50,6 +51,8 @@ void loop() {
       }
       break;
   }
+  digitalWrite(13, Low);
+  delay(1);
 }
 
 void clickF12(){
