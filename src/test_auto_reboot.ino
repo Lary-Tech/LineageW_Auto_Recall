@@ -27,6 +27,8 @@ void loop() {
   if(start_time > current_time || current_time - start_time >= RESET_TIME*1000){
     // 以防萬一在初始化一次
     start_time = millis();
+    //延遲時間確定有重置
+    delay(5000);
     // 重置
     resetFunc();
   }
