@@ -209,7 +209,7 @@ void VoiceRecognition::ASR_init()////////////初始化语音识别模式、
 	  writeReg(0x46, 8); 
 	  delay(1);
 }
-void VoiceRecognition::addCommand(char *pass,int num)
+void VoiceRecognition::addCommand(const char *pass,int num)
 {
 
 	int i;

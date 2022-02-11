@@ -9,7 +9,7 @@
 #define MIC 0x0b
 #define MONO 0x23
 #define uint8 unsigned char
-#define CLK_IN   	     24///ÆµÂÊ
+#define CLK_IN   	     24///Æµï¿½ï¿½
 #define PLL_11			(uint8)((CLK_IN/2.0)-1)
 #define PLL_ASR_19 		(uint8)(CLK_IN*32.0/(PLL_11+1) - 0.51)
 #define PLL_ASR_1B 		0x48
@@ -65,7 +65,7 @@ public:
 	void init(uint8_t mic=MIC);
 	void ASR_init();
 	unsigned char start();
-	void addCommand(char *pass,int num);
+	void addCommand(const char *pass,int num);
 	int read();
 	
 	void micVol(uint8_t vol);
