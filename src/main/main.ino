@@ -22,7 +22,11 @@ void setup(){
   
   // 初始化 ld3320
   Voice.init(MIC);
-  Voice.addCommand("zao shou di ren gong chi le", 0); 
+  Voice.addCommand("zao shou di ren gong chi le", 0);
+  Voice.addCommand("zao shou di ren ", 1);
+  Voice.addCommand("gong chi le", 2);
+  Voice.addCommand("di ren gong chi le", 3);
+  Voice.addCommand("zao shou di ren gong chi le zao shou di ren gong chi le", 4);
   Voice.micVol(100);      
   Voice.voiceMaxLength(22);              
   Voice.start();
@@ -36,6 +40,22 @@ void loop() {
   switch(Voice.read())
   {
     case 0:
+      clickF12();
+      releaseKey();
+      break;
+    case 1:
+      clickF12();
+      releaseKey();
+      break;
+    case 2:
+      clickF12();
+      releaseKey();
+      break;
+    case 3:
+      clickF12();
+      releaseKey();
+      break;
+    case 4:
       clickF12();
       releaseKey();
       break;
