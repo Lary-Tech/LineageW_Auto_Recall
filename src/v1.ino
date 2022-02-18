@@ -1,3 +1,8 @@
+#include <ld3320.h>
+
+//定義一個語音辨識對
+VoiceRecognition Voice;
+
 //定義重新開機
 void(* resetFunc) (void) = 0;
 
@@ -14,16 +19,43 @@ void releaseKey();
 
 void setup(){
   Serial.begin(9600);
+  
+  // 初始化 ld3320
+  Voice.init(MIC);
+  Voice.addCommand("zao shou di ren gong chi le", 0);
+  Voice.addCommand("zao shou di ren ", 1);
+  Voice.addCommand("gong chi le", 2);
+  Voice.addCommand("di ren gong chi le", 3);
+  Voice.addCommand("zao shou di ren gong chi le zao shou di ren gong chi le", 4);
+  Voice.micVol(100);      
+  Voice.voiceMaxLength(22);              
+  Voice.start();
+
+  start_time = millis();
 }
 
 
 void loop() {
-  if(Serial.available() == 0) continue;
-
   // 如果 read 到 0
-  switch(Serial.read())
+  switch(Voice.read())
   {
+    case 0:
+      clickF12();
+      releaseKey();
+      break;
     case 1:
+      clickF12();
+      releaseKey();
+      break;
+    case 2:
+      clickF12();
+      releaseKey();
+      break;
+    case 3:
+      clickF12();
+      releaseKey();
+      break;
+    case 4:
       clickF12();
       releaseKey();
       break;
