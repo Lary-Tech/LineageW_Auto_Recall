@@ -33,6 +33,10 @@ void loop() {
   Serial.println(val0);
   Serial.println(val1);
   Serial.println(val2);
+
+  if(val0 > 10 || val1 > 10 || val2 > 10){
+    delay(3000);
+  }
   
   delay(100);
 }
