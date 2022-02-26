@@ -25,16 +25,24 @@ void setup(){
 }
 
 void loop() {
-  int val0 = analogRead(0);
-  int val1 = analogRead(1);
-  int val2 = analogRead(2);
+  int val = analogRead(0);
+  //Serial.println(val);
   
-  Serial.println("V: ");
-  Serial.println(val0);
-  Serial.println(val1);
-  Serial.println(val2);
+  if(val > 11){
+    delay(random(100, 500));
+    clickPrtScn();
+    delay(random(100, 500));
+    clickF12();
+    delay(1000);
+  }
   
-  delay(100);
+  unsigned long current_time = millis();
+  // start_time > current_time 代表連續執行超過50天 start_time 歸 0
+  // current_time - start_time 為執行時間 如果大於設定的 RESET_TIME 也要重製
+  if(start_time > current_time || current_time - start_time >= RESET_TIME*1000){
+      // 重置
+      resetFunc();
+  }
 }
 
 void clickPrtScn(){
