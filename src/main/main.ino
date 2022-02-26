@@ -29,7 +29,9 @@ void loop() {
   //Serial.println(val);
   
   if(val > 11){
+    delay(random(100, 500));
     clickPrtScn();
+    delay(random(100, 500));
     clickF12();
     delay(1000);
   }
