@@ -1,3 +1,5 @@
+#include <Arduino.h> 
+#include <Arduino-usbserial.h>
 //定義重新開機
 void(* resetFunc) (void) = 0;
 

@@ -1,3 +1,4 @@
+#include <Arduino.h>
 //多久之後重新設定
 unsigned long RESET_TIME = 180;
 
