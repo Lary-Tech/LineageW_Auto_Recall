@@ -25,3 +25,15 @@ void Keyboard::clickF12(){ //按F12
   Serial.write(buf, 8);
   releaseKey();
 }
+
+void Keyboard::clickF10(){ //按F12
+  buf[2] = 67;
+  Serial.write(buf, 8);
+  releaseKey();
+}
+
+void Keyboard::clickF9(){ //按F12
+  buf[2] = 66;
+  Serial.write(buf, 8);
+  releaseKey();
+}

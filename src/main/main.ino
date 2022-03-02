@@ -21,9 +21,11 @@ void loop() {
 
   if(val1 > 500){
     delay(random(100, 500));
+    keyboard.clickF10();
   }
 
   if(val2 > 500){
     delay(random(100, 500));
+    keyboard.clickF9();
   }
 }
