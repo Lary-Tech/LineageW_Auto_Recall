@@ -15,17 +15,20 @@ void loop() {
   
   if(val0 > 500){
     delay(random(100, 500));
+    //Serial.println("val0: ");
     keyboard.clickPrtScn();
     keyboard.clickF12();
   }
 
   if(val1 > 500){
     delay(random(100, 500));
+    //Serial.println("val1: ");
     keyboard.clickF10();
   }
 
   if(val2 > 500){
     delay(random(100, 500));
+    //Serial.println("val2:");
     keyboard.clickF9();
   }
 }
