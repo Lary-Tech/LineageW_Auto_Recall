@@ -31,7 +31,7 @@ void loop() {
   int val = analogRead(0);
   //Serial.println(val);
   
-  if(val > 11){
+  if(val > 500){
     delay(random(100, 500));
     clickPrtScn();
     delay(random(100, 500));
