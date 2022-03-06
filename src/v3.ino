@@ -17,11 +17,14 @@ void setup(){
   Serial.begin(9600);
   start_time = millis();
 
+  // 吃掉第一次電流不穩定
+  /*
   pinMode(13, OUTPUT);
   while(analogRead(0) > 10){
     digitalWrite(13, HIGH);
   }
   digitalWrite(13, LOW);
+  */
 }
 
 void loop() {
