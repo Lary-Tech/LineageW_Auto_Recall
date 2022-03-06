@@ -1,11 +1,11 @@
-#include <avr/wdt.h>
+//#include <avr/wdt.h>
 #include "keyboard.h"
 
 Keyboard keyboard;
 
 void setup(){
   Serial.begin(9600);
-  wdt_enable(WDTO_2S); 
+  //wdt_enable(WDTO_2S); 
 }
 
 void loop() {
