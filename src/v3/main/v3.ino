@@ -1,17 +1,14 @@
+#include "../../h/keyboard.h"
+
 //定義重新開機
 void(* resetFunc) (void) = 0;
-
 //記錄開始時間
 unsigned long start_time = 0;
-
 //多久之後重新設定
 unsigned long RESET_TIME = 8;
 
-//定義寫入按鍵
-uint8_t buf[8] = { 0 };
-void clickPrtScn();
-void clickF12();
-void releaseKey();
+// 定義 keyboard
+Keyboard keyboard;
 
 void setup(){
   Serial.begin(9600);
@@ -33,9 +30,9 @@ void loop() {
   
   if(val > 500){
     delay(random(100, 500));
-    clickPrtScn();
+    keyboard.clickPrtScn();
     delay(random(100, 500));
-    clickF12();
+    keyboard.clickF12();
     delay(1000);
   }
   
@@ -46,35 +43,4 @@ void loop() {
       // 重置
       resetFunc();
   }
-}
-
-void clickPrtScn(){
-  digitalWrite(13, HIGH);
-  //按下按鈕
-  buf[2] = 70;
-  Serial.write(buf, 8);
-  
-  //持續 0.1s
-  delay(100);
-  releaseKey();
-  digitalWrite(13, LOW);
-}
-
-void clickF12(){
-  digitalWrite(13, HIGH);
-  //按下按鈕
-  buf[2] = 69;
-  Serial.write(buf, 8);
-  
-  //持續 0.1s
-  delay(100);
-  releaseKey();
-  digitalWrite(13, LOW);
-}
-
-void releaseKey(){
-  //釋放按鈕
-  buf[0] = 0;
-  buf[2] = 0;
-  Serial.write(buf, 8);
 }
