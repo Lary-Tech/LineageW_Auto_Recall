@@ -1,5 +1,5 @@
 //#include <avr/wdt.h>
-#include "keyboard.h"
+#include "../../h/keyboard.h"
 
 Keyboard keyboard;
 
