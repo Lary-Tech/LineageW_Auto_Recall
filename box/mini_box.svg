@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	 id="svg15" inkscape:export-filename="C:\Users\YJack\Downloads\mini_box.png" inkscape:export-xdpi="96" inkscape:version="1.1.2 (b8e25be833, 2022-02-05)" sodipodi:docname="mini_box.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 620.8 377"
+	 style="enable-background:new 0 0 620.8 377;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#FF0000;stroke-width:0.2835;stroke-linecap:round;stroke-miterlimit:11.3386;}
+	.st1{fill:none;}
+	.st2{fill:#666666;}
+	.st3{font-family:'Blanka-Regular';}
+	.st4{font-size:40px;}
+	.st5{fill:none;stroke:#000000;stroke-width:0.2438;stroke-miterlimit:11.3386;}
+</style>
+<sodipodi:namedview  bordercolor="#666666" borderopacity="1.0" id="namedview17" inkscape:current-layer="svgGroup" inkscape:cx="329.18948" inkscape:cy="235.38629" inkscape:document-units="mm" inkscape:pagecheckerboard="0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="1017" inkscape:window-maximized="1" inkscape:window-width="1920" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:zoom="1.4231925" pagecolor="#ffffff" showgrid="false">
+	</sodipodi:namedview>
+<g id="svgGroup">
+	<path id="front_outsideCutPath" vector-effect="non-scaling-stroke" class="st0" d="M0,201.3v52.8h8.5v61.7H0v52.8h74.1V360h61.7
+		v8.5h61.7h12.4v-52.8h-8.5v-61.7h8.5v-52.8h-74.1v8.5H74.1v-8.5H12.4H0z"/>
+	<path id="left_outsideCutPath" vector-effect="non-scaling-stroke" class="st0" d="M226.8,209.8v52.8h-8.5v61.7h8.5V377h52.8v-8.5
+		h61.7v8.5H394v-52.8h8.5v-61.7H394v-52.8h-52.8v8.5h-61.7v-8.5H226.8z"/>
+	<path id="top_outsideCutPath" vector-effect="non-scaling-stroke" class="st0" d="M419.5,201.3v52.8H411v61.7h8.5v52.8h65.6v8.5
+		h61.7v-8.5h61.7h3.9v-52.8h8.5v-61.7h-8.5v-52.8h-65.6v-8.5h-61.7v8.5h-61.7H419.5z"/>
+	<path id="back_outsideCutPath" vector-effect="non-scaling-stroke" class="st0" d="M0,34v52.8h8.5v61.7H0v52.8h74.1v-8.5h61.7v8.5
+		h61.7h12.4v-52.8h-8.5V86.8h8.5V34h-74.1v8.5H74.1V34H12.4H0z"/>
+	<path id="right_outsideCutPath" vector-effect="non-scaling-stroke" class="st0" d="M226.8,34v52.8h-8.5v61.7h8.5v52.8h52.8v-8.5
+		h61.7v8.5H394v-52.8h8.5V86.8H394V34h-52.8v8.5h-61.7V34H226.8z"/>
+	<path id="bottom_outsideCutPath" vector-effect="non-scaling-stroke" class="st0" d="M419.5,8.5v52.8H411V123h8.5v52.8h65.6v8.5
+		h61.7v-8.5h61.7h3.9V123h8.5V61.3h-8.5V8.5h-65.6V0h-61.7v8.5h-61.7H419.5z"/>
+</g>
+<path id="SVGID_x5F_1_x5F_" class="st1" d="M138.7,287.3c-7.5-4-10.4-13.2-6.6-20.7c3.8-7.5,12.9-10.3,20.4-6.3
+	c7.5,4,10.4,13.2,6.6,20.7C155.3,288.4,146.2,291.3,138.7,287.3z"/>
+<text><textPath  xlink:href="#SVGID_x5F_1_x5F_" startOffset="45.4427%">
+<tspan  style="fill:#565656; font-family:'Tomorrow-Light'; font-size:9.5px;">GAMEBOX</tspan></textPath>
+</text>
+<g id="layer1" inkscape:groupmode="layer" inkscape:label="Layer 1">
+</g>
+<text transform="matrix(1 0 0 1 59.0215 301.4346)" class="st2 st3 st4">MINI</text>
+<circle id="path69777" class="st5" cx="545.2" cy="287" r="15.6"/>
+</svg>
