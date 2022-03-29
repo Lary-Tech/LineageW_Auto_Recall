@@ -21,8 +21,6 @@ int c = 0;
 
 void loop()
 {
-    reset_mouse();
-
     //int val0 = analogRead(0);
     //int val1 = analogRead(1);
     //int val2 = analogRead(2);
@@ -35,6 +33,9 @@ void loop()
     bool hp_not_enough = ( analogRead(1) > 500 ? true : false );   // A26 體力不足了
     bool need_potion = ( analogRead(2) > 500 ? true : false );   // A27 需要補充藥水
     
+    if( be_attacked || hp_not_enough || need_potion )
+      reset_mouse();
+
     if( be_attacked ){
         delay(random(100, 500));
         //Serial.println("val0: ");
