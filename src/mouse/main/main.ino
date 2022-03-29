@@ -52,6 +52,8 @@ void loop()
     if( need_potion ){
         delay(random(100, 500));
         //Serial.println("val2:");
+        recall();
+        reset_mouse();
         buy_supply();
         reset_mouse();
         change_place();
@@ -73,7 +75,7 @@ void hp(){
 void buy_supply(){
   delay(100);
   mouse(115, 60, 30);
-  click(1);
+  //click(1);
   delay(100);
   mouse(-5, -8, 30);
   click(1);
