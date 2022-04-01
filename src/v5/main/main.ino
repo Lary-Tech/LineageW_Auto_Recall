@@ -21,7 +21,7 @@ void setup()
     mouseReport.wheel = 0;
 }
 
-int count_place = 0;
+int count_place = 4;
 
 void loop()
 {
@@ -33,7 +33,6 @@ void loop()
       reset_mouse();
 
     if( be_attacked ){
-        delay(random(100, 500));
         recall();
         //delay(random(750, 1250));
         reset_mouse();
@@ -44,7 +43,7 @@ void loop()
         delay(random(750, 1250));
 
         count_place = count_place + 1;
-        if(count_place > 4)
+        if(count_place > 3)
           count_place = 0;
     }
 
@@ -70,7 +69,6 @@ void loop()
 }
 
 void recall(){
-  delay(100);
   mouse(0, 3, 30);
   click(4); // 中鍵
   click(4); // 中鍵
@@ -157,7 +155,7 @@ void change_place(int place){
 
   // 選圖
   delay(1000);
-  mouse(40-count_place, 70 + 9*count_place, 10);
+  mouse(40-count_place, 72 + 9*count_place, 10);
   delay(random(750, 1250));
   click(1);
   
