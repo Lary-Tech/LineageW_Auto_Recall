@@ -7,6 +7,10 @@ struct {
  
 uint8_t nullReport[4] = { 0, 0, 0, 0 };
 
+void recall();
+void hp();
+void change_place(int);
+
 void setup()
 {
     Serial.begin(9600);
@@ -17,18 +21,10 @@ void setup()
     mouseReport.wheel = 0;
 }
 
-int c = 0;
+int count_place = 0;
 
 void loop()
 {
-    //int val0 = analogRead(0);
-    //int val1 = analogRead(1);
-    //int val2 = analogRead(2);
-
-    //Serial.println(val0);
-    //Serial.println(val1);
-    //Serial.println(val2);
-
     bool be_attacked = ( analogRead(0) > 500 ? true : false );   // A25 遭受敵人攻擊了
     bool hp_not_enough = ( analogRead(1) > 500 ? true : false );   // A26 體力不足了
     bool need_potion = ( analogRead(2) > 500 ? true : false );   // A27 需要補充藥水
@@ -38,25 +34,28 @@ void loop()
 
     if( be_attacked ){
         delay(random(100, 500));
-        //Serial.println("val0: ");
         recall();
-        delay(random(750, 1250));
+        //delay(random(750, 1250));
         reset_mouse();
+        buy_supply();
+        reset_mouse();
+        //delay(random(750, 1250));
+        change_place(count_place);
         delay(random(750, 1250));
-        change_place();
-        delay(random(750, 1250));
+
+        count_place = count_place + 1;
+        if(count_place > 4)
+          count_place = 0;
     }
 
     if( hp_not_enough ){
         delay(random(750, 1250));
-        //Serial.println("val1: ");
-        hp(); // 按鍵6 的強效藥水 
+        hp(); // 按鍵7 的強效藥水 
         delay(random(750, 1250));
     }
 
     if( need_potion ){
         delay(random(100, 500));
-        //Serial.println("val2:");
         recall();
         delay(random(750, 1250));
         reset_mouse();
@@ -65,82 +64,117 @@ void loop()
         delay(random(750, 1250));
         reset_mouse();
         delay(random(750, 1250));
-        change_place();
+        change_place(count_place);
         delay(random(750, 1250));
     }
 }
 
 void recall(){
   delay(100);
-  mouse(60, 60, 30);
-  delay(random(750, 1250));
+  mouse(0, 3, 30);
+  click(4); // 中鍵
   click(4); // 中鍵
 }
 
 void hp(){
+  reset_mouse();
   delay(1000);
-  mouse(105, 60, 30);
+  mouse(107, 60, 30);
+  click(1);
+  delay(100);
   click(1);
 }
 
 void buy_supply(){
-  delay(1000);
-  mouse(115, 60, 30);
-  delay(random(750, 1250));
-  //click(1);
-  delay(1000);
-  mouse(-5, -8, 30);
-  delay(random(750, 1250));
+  reset_mouse();
+  delay(100);
+  mouse(110, 60, 30); //回捲
   click(1);
-  delay(1000);
-  mouse(-40, -18, 30);
-  delay(random(750, 1250));
   click(1);
-  delay(1000);
-  mouse(4, 0, 30);
-  delay(random(750, 1250));
   click(1);
-
-  delay(10000);
+  click(1);
+  click(1);
+  click(1);
+  click(1);
+  click(1);
+  click(1);
+  click(1);
+  click(1);
+  click(1);
+  delay(2000);
   
-  delay(random(100, 500));
-  mouse(33, 28, 30);
-  delay(random(750, 1250));
-  click(1);
+  reset_mouse();
   
   delay(1000);
-  mouse(10, 0, 30);
-  delay(random(750, 1250));
+  mouse(107, 51, 30); //指標按鈕
+  delay(2000);
   click(1);
-  delay(1000);
-  mouse(0, -57, 30);
-  delay(random(750, 1250));
-  click(1);
-}
 
-void change_place(){
-  delay(1000); // 點按叫出儲存的東西
-  mouse(117, 10, 30);
-  delay(random(750, 1250));
+  reset_mouse();
+  
+  delay(1000);
+  mouse(67, 33, 30);//商人
+  click(1);
+
+  reset_mouse();
+  
+  delay(1000);
+  mouse(71, 33, 30);//移動
   click(1);
 
   reset_mouse();
 
+  delay(15000);
+  
   delay(1000);
-  mouse(40, 70, 10);
+  mouse(103, 61, 30); //自動購買
+  delay(1000);
+  click(1);
+
+  reset_mouse();
+  
+  delay(1000);
+  mouse(110, 61, 30); //全部購買
+  delay(1000);
+  click(1);
+
+  reset_mouse();
+  
+  delay(1000);
+  mouse(115, 4, 30); //結束視窗
+  delay(1000);
+  click(1);
+}
+
+void change_place(int place){
+  delay(1000); // 點按叫出儲存的東西
+  mouse(113, 11, 30); //列表圖案
+  delay(100);
+  click(1);
+  click(1);
+
+  reset_mouse();
+
+  // 選圖
+  delay(1000);
+  mouse(40-count_place, 70 + 9*count_place, 10);
   delay(random(750, 1250));
   click(1);
   
   delay(1000);
   
-  mouse(14, 9, 10);
+  // 點按傳送
+  mouse(13, 9+count_place, 10);
   delay(random(750, 1250));
   click(1);
-
   delay(1000);
 
-  mouse(93, 18, 30);
-  delay(random(750, 1250));
+  // 自動
+  reset_mouse();
+
+  delay(1000);
+  mouse(111, 46, 30); //自動練功
+  delay(1250);
   click(1);
 }
 
@@ -149,7 +183,7 @@ void reset_mouse(){
   mouseReport.y = -120;
   mouseReport.buttons = 0;
   
-  for (int i = 0; i < 50; i++) {
+  for (int i = 0; i < 70; i++) {
     Serial.write((uint8_t *) &mouseReport, 4);
     Serial.write((uint8_t *) &nullReport, 4);
   }
