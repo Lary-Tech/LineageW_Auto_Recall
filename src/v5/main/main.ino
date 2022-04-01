@@ -40,86 +40,107 @@ void loop()
         delay(random(100, 500));
         //Serial.println("val0: ");
         recall();
+        delay(random(750, 1250));
         reset_mouse();
+        delay(random(750, 1250));
         change_place();
+        delay(random(750, 1250));
     }
 
     if( hp_not_enough ){
-        delay(random(100, 500));
+        delay(random(750, 1250));
         //Serial.println("val1: ");
         hp(); // 按鍵6 的強效藥水 
+        delay(random(750, 1250));
     }
 
     if( need_potion ){
         delay(random(100, 500));
         //Serial.println("val2:");
         recall();
+        delay(random(750, 1250));
         reset_mouse();
+        delay(random(750, 1250));
         buy_supply();
+        delay(random(750, 1250));
         reset_mouse();
+        delay(random(750, 1250));
         change_place();
+        delay(random(750, 1250));
     }
 }
 
 void recall(){
   delay(100);
   mouse(60, 60, 30);
+  delay(random(750, 1250));
   click(4); // 中鍵
 }
 
 void hp(){
-  delay(100);
+  delay(1000);
   mouse(105, 60, 30);
   click(1);
 }
 
 void buy_supply(){
-  delay(100);
+  delay(1000);
   mouse(115, 60, 30);
+  delay(random(750, 1250));
   //click(1);
-  delay(100);
+  delay(1000);
   mouse(-5, -8, 30);
+  delay(random(750, 1250));
   click(1);
-  delay(100);
+  delay(1000);
   mouse(-40, -18, 30);
+  delay(random(750, 1250));
   click(1);
-  delay(100);
+  delay(1000);
   mouse(4, 0, 30);
+  delay(random(750, 1250));
   click(1);
 
   delay(10000);
   
   delay(random(100, 500));
   mouse(33, 28, 30);
+  delay(random(750, 1250));
   click(1);
   
-  delay(100);
+  delay(1000);
   mouse(10, 0, 30);
+  delay(random(750, 1250));
   click(1);
-  delay(100);
+  delay(1000);
   mouse(0, -57, 30);
+  delay(random(750, 1250));
   click(1);
 }
 
 void change_place(){
-  delay(100); // 點按叫出儲存的東西
+  delay(1000); // 點按叫出儲存的東西
   mouse(117, 10, 30);
+  delay(random(750, 1250));
   click(1);
 
   reset_mouse();
 
-  delay(100);
+  delay(1000);
   mouse(40, 70, 10);
+  delay(random(750, 1250));
   click(1);
   
-  delay(100);
+  delay(1000);
   
   mouse(14, 9, 10);
+  delay(random(750, 1250));
   click(1);
 
   delay(1000);
 
   mouse(93, 18, 30);
+  delay(random(750, 1250));
   click(1);
 }
 
@@ -166,7 +187,7 @@ void click(uint8_t cl){
     mouseReport.y = 0;
     mouseReport.wheel = 0;
 
-    delay(100);
+    delay(500);
 }
 
 void wheel(int8_t wh){
@@ -179,5 +200,5 @@ void wheel(int8_t wh){
     mouseReport.y = 0;
     mouseReport.wheel = 0;
 
-    delay(100);
+    delay(500);
 }
