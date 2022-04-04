@@ -7,7 +7,7 @@ struct {
  
 uint8_t nullReport[4] = { 0, 0, 0, 0 };
 
-int count_place = 4;
+int count_place = 0;
 unsigned long pre_potion;
 
 void recall();
