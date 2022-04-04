@@ -43,7 +43,7 @@ void loop()
         // 改圖
         change_place(count_place);
         count_place = count_place + 1;
-        if(count_place > 3)
+        if(count_place > 2)
           count_place = 0;
     }
 
@@ -64,6 +64,8 @@ void loop()
           pre_potion = current_time;
         }else{ // 停止
           recall();
+
+          pre_potion = current_time;
         }
     }
 }
@@ -156,14 +158,14 @@ void change_place(int place){
   // 選圖
   reset_mouse();
   delay(1000);
-  mouse(40-count_place, 72 + 9*count_place, 10);
+  mouse(15, 27 + 3*count_place, 30);
   delay(random(750, 1250));
   click(1);
   
   delay(1000);
   
   // 點按傳送
-  mouse(13, 9+count_place, 10);
+  mouse(3, 4, 30);
   delay(random(750, 1250));
   click(1);
   delay(1000);
