@@ -7,6 +7,9 @@ struct {
  
 uint8_t nullReport[4] = { 0, 0, 0, 0 };
 
+int count_place = 4;
+unsigned long pre_potion;
+
 void recall();
 void hp();
 void change_place(int);
@@ -19,56 +22,52 @@ void setup()
     mouseReport.x = 0;
     mouseReport.y = 0;
     mouseReport.wheel = 0;
+
+    pre_potion = millis();
 }
 
-int count_place = 4;
 
 void loop()
 {
     bool be_attacked = ( analogRead(0) > 500 ? true : false );   // A25 遭受敵人攻擊了
     bool hp_not_enough = ( analogRead(1) > 500 ? true : false );   // A26 體力不足了
     bool need_potion = ( analogRead(2) > 500 ? true : false );   // A27 需要補充藥水
-    
-    if( be_attacked || hp_not_enough || need_potion )
-      reset_mouse();
 
     if( be_attacked ){
+        // 回程並購買藥水
         recall();
-        //delay(random(750, 1250));
-        reset_mouse();
+        delay(random(150, 1250));
         buy_supply();
-        reset_mouse();
-        //delay(random(750, 1250));
-        change_place(count_place);
-        delay(random(750, 1250));
+        delay(random(150, 1250));
 
+        // 改圖
+        change_place(count_place);
         count_place = count_place + 1;
         if(count_place > 3)
           count_place = 0;
     }
 
     if( hp_not_enough ){
-        delay(random(750, 1250));
         hp(); // 按鍵7 的強效藥水 
-        delay(random(750, 1250));
     }
 
+    unsigned long current_time = millis();
+
     if( need_potion ){
-        delay(random(100, 500));
-        recall();
-        delay(random(750, 1250));
-        reset_mouse();
-        delay(random(750, 1250));
-        buy_supply();
-        delay(random(750, 1250));
-        reset_mouse();
-        delay(random(750, 1250));
-        change_place(count_place);
-        delay(random(750, 1250));
+        if(current_time - pre_potion > 10 * 60 * 1000){ // 10 分鐘以上
+          recall();
+          delay(random(750, 1250));
+          buy_supply();
+          delay(random(750, 1250));
+          change_place(count_place);
+        }else{ // 停止
+          recall();
+        }
     }
 }
 
 void recall(){
+  reset_mouse();
   mouse(0, 3, 30);
   click(4); // 中鍵
   click(4); // 中鍵
@@ -145,15 +144,15 @@ void buy_supply(){
 }
 
 void change_place(int place){
+  reset_mouse();
   delay(1000); // 點按叫出儲存的東西
   mouse(113, 11, 30); //列表圖案
   delay(100);
   click(1);
   click(1);
 
-  reset_mouse();
-
   // 選圖
+  reset_mouse();
   delay(1000);
   mouse(40-count_place, 72 + 9*count_place, 10);
   delay(random(750, 1250));
