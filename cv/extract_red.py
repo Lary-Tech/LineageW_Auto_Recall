@@ -2,15 +2,17 @@ import numpy as np
 import cv2
 import os
 
-ps = ['21-44-03-201_2022-03-13_neokubski_Image.jpg', 
-      '22-02-50-086_2022-03-13_neokubski_Image.jpg', 
-      '22-03-22-133_2022-03-16_neokubski_Image.jpg',
-      '22-09-05-656_2022-03-14_neokubski_Image.jpg',
-      '23-49-24-037_2022-03-15_neokubski_Image.jpg',
-      '22-59-13-501_2022-03-13_neokubski_Image.jpg']
+ps = ['1.jpg', 
+      '2.jpg', 
+      '3.jpg',
+      '4.jpg',
+      '5.jpg',
+      '6.jpg']
 
 for i in range(6):
-    image = './image/' + ps[i]
+    image = './image/train/' + ps[i]
+    print(image)
+
     savefile = './res/1.png'
     # image = os.listdir(image_file)
     save_image = os.path.join(savefile, image)
