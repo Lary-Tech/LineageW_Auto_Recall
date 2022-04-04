@@ -60,6 +60,8 @@ void loop()
           buy_supply();
           delay(random(750, 1250));
           change_place(count_place);
+
+          pre_potion = current_time;
         }else{ // 停止
           recall();
         }
