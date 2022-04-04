@@ -21,7 +21,7 @@ void setup()
     mouseReport.wheel = 0;
 }
 
-int count_place = 4;
+int count_place = 2;
 
 void loop()
 {
@@ -43,7 +43,7 @@ void loop()
         delay(random(750, 1250));
 
         count_place = count_place + 1;
-        if(count_place > 3)
+        if(count_place > 2)
           count_place = 0;
     }
 
@@ -155,14 +155,15 @@ void change_place(int place){
 
   // 選圖
   delay(1000);
-  mouse(40-count_place, 72 + 9*count_place, 10);
+  mouse(15, 27 + 3*count_place, 30);
   delay(random(750, 1250));
   click(1);
-  
+
+
   delay(1000);
   
   // 點按傳送
-  mouse(13, 9+count_place, 10);
+  mouse(3, 4, 30);
   delay(random(750, 1250));
   click(1);
   delay(1000);
