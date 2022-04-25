@@ -113,9 +113,9 @@ void buy_supply(){
   
   delay(1000);
   mouse.mouse(67, 33, 30);//商人
-  click(1);
+  mouse.click(1);
 
-  reset_mouse();
+  mouse.reset_mouse();
   
   delay(1000);
   mouse.mouse(71, 33, 30);//移動
@@ -130,14 +130,14 @@ void buy_supply(){
   delay(1000);
   mouse.click(1);
 
-  reset_mouse();
+  mouse.reset_mouse();
   
   delay(1000);
   mouse.mouse(110, 61, 30); //全部購買
   delay(1000);
   mouse.click(1);
 
-  reset_mouse();
+  mouse.reset_mouse();
   
   delay(1000);
   mouse.mouse(115, 4, 30); //結束視窗
