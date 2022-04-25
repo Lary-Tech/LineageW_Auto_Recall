@@ -157,7 +157,7 @@ void change_place(int place){
 
   // 選圖
   delay(1000);
-  mouse(40-count_place, 70 + 9*count_place, 10);
+  mouse(40-count_place, 71 + 9*count_place, 10);
   delay(random(750, 1250));
   click(1);
   

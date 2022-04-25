@@ -1,4 +1,3 @@
-#include <Arduino.h>
 #include "keyboard.h"
 
 Keyboard::Keyboard(){
