@@ -1,6 +1,3 @@
-#ifndef Morse_h
-#define Morse_h
-
 #include <Arduino.h>
 class Keyboard {
     public:
@@ -13,5 +10,3 @@ class Keyboard {
     private:
         uint8_t buf[8];
 };
-
-#endif
