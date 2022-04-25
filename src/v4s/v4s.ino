@@ -1,4 +1,4 @@
-#include "../h/mouse.h"
+#include "mouse.h"
 
 void setup()
 {
