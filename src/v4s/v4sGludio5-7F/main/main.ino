@@ -149,7 +149,7 @@ void buy_supply(){
   click(1);
 }
 
-void change_place(int place){ //<<<<<<<<<<<<<<<<<<<<<<
+void v4sGludio5_7F(int place){ //<<<<<<<<<<<<<<<<<<<<<< 5 <= place <= 7
   reset_mouse();
   delay(1000); // 點按叫出儲存的東西
   mouse(114, 4, 30); //列表圖案
@@ -194,7 +194,7 @@ void change_place(int place){ //<<<<<<<<<<<<<<<<<<<<<<
   reset_mouse();
   
   delay(1000);
-  mouse(72, 39 + 4*count_place, 30); // 選幾層
+  mouse(72, 39 + 4*place, 30); // 選幾層
   delay(random(750, 1250));
   click(1);
   

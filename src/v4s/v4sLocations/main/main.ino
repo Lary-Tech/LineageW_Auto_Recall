@@ -150,7 +150,7 @@ void buy_supply(){
   click(1);
 }
 
-void change_place(int place){
+void v4sLocations(int place){ //>>>>>>>>>>>>> 1 <= place <= 3
   reset_mouse();
   delay(1000); // 點按叫出儲存的東西
   mouse(113, 11, 30); //列表圖案
