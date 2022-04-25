@@ -1,3 +1,5 @@
+#define LIMIT 600000
+
 struct {
     uint8_t buttons;
     int8_t x;
@@ -7,6 +9,13 @@ struct {
  
 uint8_t nullReport[4] = { 0, 0, 0, 0 };
 
+int count_place = 2;
+unsigned long pre_potion;
+
+void recall();
+void hp();
+void change_place(int);
+
 void setup()
 {
     Serial.begin(9600);
@@ -15,69 +24,60 @@ void setup()
     mouseReport.x = 0;
     mouseReport.y = 0;
     mouseReport.wheel = 0;
-}
 
-int c = 0;
+    pre_potion = 0;
+}
 
 void loop()
 {
-    //int val0 = analogRead(0);
-    //int val1 = analogRead(1);
-    //int val2 = analogRead(2);
-
-    //Serial.println(val0);
-    //Serial.println(val1);
-    //Serial.println(val2);
-
     bool be_attacked = ( analogRead(0) > 500 ? true : false );   // A25 遭受敵人攻擊了
     bool hp_not_enough = ( analogRead(1) > 500 ? true : false );   // A26 體力不足了
     bool need_potion = ( analogRead(2) > 500 ? true : false );   // A27 需要補充藥水
-    
-    if( be_attacked || hp_not_enough || need_potion )
-      reset_mouse();
 
     if( be_attacked ){
-        delay(random(100, 500));
-        //Serial.println("val0: ");
+        // 回程並購買藥水
         recall();
-        delay(100);
+        delay(random(150, 1250));
         buy_supply();
-        delay(random(750, 1250));
-        reset_mouse();
-        delay(random(750, 1250));
-        change_place_DroganValley3F();
-        delay(random(750, 1250));
+        delay(random(150, 1250));
+
+        // 改圖
+        change_place(count_place);
+        count_place = count_place + 1;
+        if(count_place > 2)
+          count_place = 0;
     }
 
     if( hp_not_enough ){
-        delay(100);
-        //Serial.println("val1: ");
-        hp(); // 按鍵7 的強效藥水或治癒術
-       
+        hp(); // 按鍵7 的強效藥水 
     }
 
+    unsigned long current_time = millis();
+
     if( need_potion ){
-        delay(random(100, 500));
-        //Serial.println("val2:");
-        recall();
-        delay(random(750, 1250));
-        reset_mouse();
-        delay(random(750, 1250));
-        buy_supply();
-        delay(random(750, 1250));
-        reset_mouse();
-        delay(random(750, 1250));
-        change_place_DroganValley3F();
-        delay(random(750, 1250));
+        //Serial.println(pre_time);
+        //Serial.println(current_time);
+        if(current_time - pre_potion > LIMIT || pre_potion == 0){ // 10 分鐘以上
+          recall();
+          delay(random(750, 1250));
+          buy_supply();
+          delay(random(750, 1250));
+          change_place(count_place);
+
+          pre_potion = current_time;
+        }else{ // 停止
+          recall();
+
+          pre_potion = current_time;
+        }
     }
 }
 
 void recall(){
-  delay(100);
+  reset_mouse();
   mouse(0, 3, 30);
   click(4); // 中鍵
   click(4); // 中鍵
-  
 }
 
 void hp(){
@@ -150,79 +150,56 @@ void buy_supply(){
   click(1);
 }
 
-void change_place_DroganValley3F(){
+void change_place(int place){ //<<<<<<<<<<<<<<<<<<<<<<
+  reset_mouse();
   delay(1000); // 點按叫出儲存的東西
-  mouse(113, 11, 30); //列表圖案
-  delay(1250);
+  mouse(114, 4, 30); //列表圖案
+  delay(100);
   click(1);
 
   reset_mouse();
 
-  delay(1000);
-  mouse(110, 15, 30); //選擇地監選項
-  delay(1250);
+  delay(1000); // 選擇地監選項
+  mouse(110, 15, 30); //列表圖案
+  delay(100);
   click(1);
-
-  reset_mouse();
   
+  reset_mouse();
+
+  delay(1000); 
+  mouse(110, 35, 30); //選擇龍谷地監 *改
+  delay(100);
+  click(1);
+  
+  reset_mouse();
+
   delay(1000);
-  mouse(110, 30, 30); //選擇龍谷地監 *改
-  delay(1250);
+  mouse(72, 24 + 4*count_place, 30); // 選幾層
+  delay(random(750, 1250));
   click(1);
 
   reset_mouse();
 
-  delay(1000);
-  mouse(72, 33, 30); //飛3F  *改
-  delay(1250);
-  click(1);
-
-  reset_mouse();
-
+  
   delay(1000);
   mouse(62, 38, 30); //確認 
   delay(1250);
   click(1);
-
+  
   reset_mouse();
 
-  delay(1000);
+  delay(1000); //<<<<<<<<<<<<<<<
   mouse(111, 46, 30); //自動練功
   delay(1250);
   click(1);
 }
-/*void change_place(){
-  delay(1000); // 點按叫出儲存的東西
-  mouse(117, 10, 30);
-  delay(random(750, 1250));
-  click(1);
 
-  reset_mouse();
-
-  delay(1000);
-  mouse(40, 70, 10);
-  delay(random(750, 1250));
-  click(1);
-  
-  delay(1000);
-  
-  mouse(14, 9, 10);
-  delay(random(750, 1250));
-  click(1);
-
-  delay(1000);
-
-  mouse(93, 18, 30);
-  delay(random(750, 1250));
-  click(1);
-}
-*/
 void reset_mouse(){
   mouseReport.x = -120;
   mouseReport.y = -120;
   mouseReport.buttons = 0;
   
-  for (int i = 0; i < 50; i++) {
+  for (int i = 0; i < 70; i++) {
     Serial.write((uint8_t *) &mouseReport, 4);
     Serial.write((uint8_t *) &nullReport, 4);
   }

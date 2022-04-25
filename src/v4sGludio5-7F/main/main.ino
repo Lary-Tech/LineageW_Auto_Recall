@@ -1,3 +1,5 @@
+#define LIMIT 600000
+
 struct {
     uint8_t buttons;
     int8_t x;
@@ -7,7 +9,7 @@ struct {
  
 uint8_t nullReport[4] = { 0, 0, 0, 0 };
 
-int count_place = 0;
+int count_place = 2;
 unsigned long pre_potion;
 
 void recall();
@@ -17,13 +19,12 @@ void change_place(int);
 void setup()
 {
     Serial.begin(9600);
- 
     mouseReport.buttons = 0;
     mouseReport.x = 0;
     mouseReport.y = 0;
     mouseReport.wheel = 0;
-
-    pre_potion = millis();
+    
+    pre_potion = 0;
 }
 
 void loop()
@@ -53,7 +54,9 @@ void loop()
     unsigned long current_time = millis();
 
     if( need_potion ){
-        if(current_time - pre_potion > 10 * 60 * 1000){ // 10 分鐘以上
+        //Serial.println(pre_time);
+        //Serial.println(current_time);
+        if(current_time - pre_potion > LIMIT || pre_potion == 0){ // 10 分鐘以上
           recall();
           delay(random(750, 1250));
           buy_supply();
@@ -146,30 +149,67 @@ void buy_supply(){
   click(1);
 }
 
-void change_place(int place){
+void change_place(int place){ //<<<<<<<<<<<<<<<<<<<<<<
   reset_mouse();
   delay(1000); // 點按叫出儲存的東西
-  mouse(113, 11, 30); //列表圖案
+  mouse(114, 4, 30); //列表圖案
   delay(100);
   click(1);
-  click(1);
 
-  // 選圖
   reset_mouse();
-  delay(1000);
-  mouse(15, 27 + 3*count_place, 30);
-  delay(random(750, 1250));
+
+  delay(1000); // 選擇地監選項
+  mouse(110, 15, 30); //列表圖案
+  delay(100);
   click(1);
-
-
-  delay(1000);
   
-  // 點按傳送
-  mouse(3, 4, 30);
+  reset_mouse();
+
+  delay(1000); 
+  mouse(62, 38, 30); //選古丁谷地監 *改
+  delay(100);
+  click(1);
+  
+  reset_mouse();
+
+  delay(1000);
+  mouse(70, 36, 30); // 往上拉
+  delay(random(750, 1250));
+  
+  mouseReport.buttons = 1;
+  mouseReport.x = 0;
+  mouseReport.y = -5;
+  for (int i = 0; i < 30; i++) {
+    uint8_t tmpReport[4] = { 1, 0, 0, 0 };
+    Serial.write((uint8_t *) &mouseReport, 4);
+    Serial.write((uint8_t *) &tmpReport, 4);
+  }
+
+  mouseReport.buttons = 0;
+  mouseReport.x = 0;
+  mouseReport.y = 0;
+  
+  delay(500);
+  
+  reset_mouse();
+  
+  delay(1000);
+  mouse(72, 39 + 4*count_place, 30); // 選幾層
   delay(random(750, 1250));
   click(1);
-  delay(1000);
+  
+  reset_mouse();
 
+  
+  delay(1000);
+  mouse(62, 38, 30); //確認 
+  delay(1250);
+  click(1);
+  
+  reset_mouse();
+
+  delay(1000); //<<<<<<<<<<<<<<<
+  
   // 自動
   reset_mouse();
 
@@ -221,6 +261,7 @@ void click(uint8_t cl){
     mouseReport.x = 0;
     mouseReport.y = 0;
     mouseReport.wheel = 0;
+    Serial.write((uint8_t *) &nullReport, 4);
 
     delay(500);
 }
