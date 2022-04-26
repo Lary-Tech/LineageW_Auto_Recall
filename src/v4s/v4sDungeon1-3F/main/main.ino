@@ -153,7 +153,7 @@ void buy_supply(){
 void v4sDungeon1_3F(int place){ //<<<<<<<<<<<<<<<<<<<<<< 1 <= place <= 3
   reset_mouse();
   delay(1000); // 點按叫出儲存的東西
-  mouse(114, 4, 30); //列表圖案
+  mouse.move(114, 4, 30); //列表圖案
   delay(100);
   click(1);
 
