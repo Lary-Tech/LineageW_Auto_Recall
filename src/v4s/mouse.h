@@ -3,7 +3,7 @@ public:
     Mouse();
     ~Mouse();
     void reset_mouse();
-    void mouse(int8_t, int8_t, int);
+    void move(int8_t, int8_t, int);
     void click(uint8_t);
     void wheel(uint8_t);
 private:

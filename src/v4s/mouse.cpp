@@ -27,7 +27,7 @@ void Mouse::reset_mouse(){
   mouseReport.wheel = 0;
 }
 
-void Mouse::mouse(int8_t x, int8_t y, int t){    
+void Mouse::move(int8_t x, int8_t y, int t){    
     mouseReport.x = x;
     mouseReport.y = y;
     mouseReport.buttons = 0;
