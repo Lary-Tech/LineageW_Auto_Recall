@@ -22,3 +22,5 @@ class Place{
 };
 
 /* 先定義 function */
+void v4sLocations(int);
+void v4sDungeon5_7F(int);

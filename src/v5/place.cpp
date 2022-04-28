@@ -1,9 +1,9 @@
 #include "place.h"
-#include "mouse.h"
 #include "goto_functions.cpp"
 
 Place::Place(){
     insert_place(&Aden1_3F, 1);
+    insert_place(&Aden1_3F, 2);
 }
 
 Place::~Place(){
