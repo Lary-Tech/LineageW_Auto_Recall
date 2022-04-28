@@ -1,5 +1,6 @@
+#include <Arduino.h>
 #include "place.h"
-#include "goto_functions.cpp"
+#include "goto_functions.h"
 
 Place::Place(){
     insert_place(&Aden1_3F, 1);

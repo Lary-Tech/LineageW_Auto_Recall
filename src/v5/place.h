@@ -1,4 +1,5 @@
-#include <Arduino.h>
+#ifndef PLACE_H
+#define PLACE_H
 
 struct place_func{
     void(*func)(int);
@@ -20,3 +21,5 @@ class Place{
 
         void insert_place(void(*)(int), int);
 };
+
+#endif

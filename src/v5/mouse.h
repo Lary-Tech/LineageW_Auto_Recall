@@ -1,3 +1,6 @@
+#ifndef MOUSE_H
+#define MOUSE_H
+
 class Mouse{
 public:
     Mouse();
@@ -15,3 +18,5 @@ private:
     } mouseReport;
     uint8_t nullReport[4] = { 0, 0, 0, 0 };
 };
+
+#endif
