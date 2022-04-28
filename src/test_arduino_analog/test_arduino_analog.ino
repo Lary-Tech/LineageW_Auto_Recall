@@ -26,5 +26,7 @@ void loop() {
   myString = "en_need_potion";
   Serial.println(myString + en_need_potion);
 
+  Serial.println("==============================================");
+
   delay(1000);
 }
