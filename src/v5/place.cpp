@@ -5,6 +5,7 @@
 Place::Place(){
     insert_place(&Aden1_3F, 1);
     insert_place(&Aden1_3F, 2);
+    insert_place(&v4sDungeon1_3F, 3);
 }
 
 Place::~Place(){
