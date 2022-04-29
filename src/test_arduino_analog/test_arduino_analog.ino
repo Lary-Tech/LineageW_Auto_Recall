@@ -23,7 +23,7 @@ void loop() {
   myString = "en_be_attacked: ";
   Serial.println(myString + en_be_attacked);
 
-  myString = "en_need_potion";
+  myString = "en_need_potion: ";
   Serial.println(myString + en_need_potion);
 
   Serial.println("==============================================");
