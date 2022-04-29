@@ -121,18 +121,7 @@ void Drageon4_6F(int place){ //<<<<<<<<<<<<<<<<<<<<<< 4 <= place <= 6
   mouse.move(70, 36, 30); // 往上拉
   delay(random(750, 1250));
   
-  mouseReport.buttons = 1;
-  mouseReport.x = 0;
-  mouseReport.y = -5;
-  for (int i = 0; i < 30; i++) {
-    uint8_t tmpReport[4] = { 1, 0, 0, 0 };
-    Serial.write((uint8_t *) &mouseReport, 4);
-    Serial.write((uint8_t *) &tmpReport, 4);
-  }
-
-  mouseReport.buttons = 0;
-  mouseReport.x = 0;
-  mouseReport.y = 0;
+  mouse.slide(0, -5, 30);
   
   delay(500);
   

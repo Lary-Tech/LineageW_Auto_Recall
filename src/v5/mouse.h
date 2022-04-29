@@ -8,6 +8,7 @@ public:
     void reset_mouse();
     void move(int8_t, int8_t, int);
     void click(uint8_t);
+    void slide(int8_t, int8_t, int);
     void wheel(uint8_t);
 private:
     struct {

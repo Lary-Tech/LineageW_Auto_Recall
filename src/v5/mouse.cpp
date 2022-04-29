@@ -57,6 +57,21 @@ void Mouse::click(uint8_t cl){
     delay(500);
 }
 
+void Mouse::slide(int8_t x, int8_t y, int t){
+  mouseReport.buttons = 1;
+  mouseReport.x = x;
+  mouseReport.y = y;
+  for (int i = 0; i < t; i++) {
+    uint8_t tmpReport[4] = { 1, 0, 0, 0 };
+    Serial.write((uint8_t *) &mouseReport, 4);
+    Serial.write((uint8_t *) &tmpReport, 4);
+  }
+
+  mouseReport.buttons = 0;
+  mouseReport.x = 0;
+  mouseReport.y = 0;
+}
+
 void Mouse::wheel(uint8_t wh){
     mouseReport.wheel = wh;
     Serial.write((uint8_t *) &mouseReport, 4);
