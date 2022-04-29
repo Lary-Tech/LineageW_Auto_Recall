@@ -25,6 +25,7 @@ void loop()
     bool need_potion = ( analogRead(2) > 500 ? true : false );   // A27 需要補充藥水
     bool en_be_attacked = ( analogRead(3) > 500 ? true : false ); // B0 English 遭受敵人攻擊
     bool en_need_potion = ( analogRead(4) > 500 ? true : false );   // B1 English 需要補充藥水
+    bool en_hp_not_enough = ( analogRead(5) > 500 ? true : false );   // B2 English 體力不足了
 
     if( be_attacked ){
         // 回程並購買藥水
@@ -37,7 +38,7 @@ void loop()
         place.execute(DO_CHANGE_PLACE);
     }
 
-    if( hp_not_enough || en_be_attacked ){
+    if( hp_not_enough || en_be_attacked || en_hp_not_enough ){
         hp(); // 按鍵7 的強效藥水 
     }
 
