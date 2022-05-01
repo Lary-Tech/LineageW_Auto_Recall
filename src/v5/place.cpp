@@ -3,9 +3,10 @@
 #include "goto_functions.h"
 
 Place::Place(){
-    insert_place(&Aden1_3F, 1);
-    insert_place(&Aden1_3F, 2);
-    insert_place(&v4sDungeon1_3F, 3);
+    
+    insert_place(&Favorites_Tag, 0);
+    insert_place(&Favorites_Tag, 1);
+    insert_place(&Dragon_Vally_Dungeon5_7F, 0);
 }
 
 Place::~Place(){
