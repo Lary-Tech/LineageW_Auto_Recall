@@ -28,7 +28,13 @@ void loop()
     bool en_hp_not_enough = ( analogRead(5) > 500 ? true : false );   // B2 English 體力不足了
 
     if( be_attacked ){
-        // 回程並購買藥水
+        
+        /*//截圖
+        mouse.reset_mouse();
+        mouse.move(118, 16, 30);
+        mouse.click(1);*/
+       
+        // 回程並購買藥水        
         recall();
         delay(random(150, 1250));
         buy_supply();
@@ -38,8 +44,12 @@ void loop()
         place.execute(DO_CHANGE_PLACE);
     }
 
-    if( hp_not_enough || en_be_attacked || en_hp_not_enough ){
+    if( hp_not_enough || en_hp_not_enough ){
         hp(); // 按鍵7 的強效藥水 
+    }
+
+    if(en_be_attacked ){
+        teleport_scroll(); // 按鍵7 的強效藥水 
     }
 
     unsigned long current_time = millis();
@@ -64,6 +74,13 @@ void loop()
 }
 
 void recall(){
+  mouse.reset_mouse();
+  mouse.move(0, 3, 30);
+  mouse.click(4); // 中鍵
+  mouse.click(4); // 中鍵
+}
+
+void teleport_scroll(){
   mouse.reset_mouse();
   mouse.move(0, 3, 30);
   mouse.click(4); // 中鍵

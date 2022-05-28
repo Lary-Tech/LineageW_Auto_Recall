@@ -4,9 +4,9 @@
 
 Place::Place(){
     
-    insert_place(&Favorites_Tag, 0);
-    insert_place(&Favorites_Tag, 1);
-    insert_place(&Dragon_Vally_Dungeon5_7F, 0);
+    insert_place(&Favorites_Tag1, 0);
+    insert_place(&Favorites_Tag2, 1);
+    insert_place(&marked_locations, 0);
 }
 
 Place::~Place(){

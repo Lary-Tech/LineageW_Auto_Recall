@@ -1,0 +1,5 @@
+Log file created at: 2022/05/17 16:55:32  PID: 16132
+Running on machine: DESKTOP-82BH9UG
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0517 16:55:32.007251  2984 code_page.cpp:268] in function[Unisound::OutputDebugPrintf], version: V1.0.1 
+ 

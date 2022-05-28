@@ -7,6 +7,8 @@ void Dragon_Vally_Dungeon4_6F(int); //<<<<<<<<<<<<<<<<<<<<<<  4 <= place <= 6
 void Dragon_Vally_Dungeon5_7F(int); //<<<<<<<<<<<<<<<<<<<<<<  5 <= place <= 7
 void Gludio5_7F(int); //<<<<<<<<<<<<<<<<<<<<<<  5 <= place <= 7
 void marked_locations(int); //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
-void Favorites_Tag(int); //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
-
+void Favorites_Tag1(int); //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
+void Favorites_Tag2(int); //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
+void Favorites_Tag3(int); //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
+void Favorites_Tag4(int); //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
 #endif
