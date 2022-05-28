@@ -394,7 +394,7 @@ void Favorites_Tag2(int place){ //<<<<<<<<<<<<加入標誌
   mouse.move(65, 35, 30); //移動
   delay(1250);
   mouse.click(1);
-  delay(20000);
+  delay(25000);
   
   // 自動
   mouse.reset_mouse();
