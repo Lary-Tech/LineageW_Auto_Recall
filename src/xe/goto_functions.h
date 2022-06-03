@@ -9,4 +9,6 @@ void Gludio5_7F(int); //<<<<<<<<<<<<<<<<<<<<<<  5 <= place <= 7
 void marked_locations(int); //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
 void Favorites_Tag1(int); //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
 void Favorites_Tag2(int); //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
+void Favorites_Tag3(int); //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
+void Favorites_Tag4(int); //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
 #endif
