@@ -6,12 +6,11 @@ struct place_func{
     int arg;
 };
 
-enum change_flag{ DO_NOT_CHANGE_PLACE, DO_CHANGE_PLACE };
-
 class Place{
     public:
         Place();
         ~Place();
+        enum change_flag{ DO_NOT_CHANGE_PLACE, DO_CHANGE_PLACE };
         void execute(change_flag);
         void execute(int);
     private:
