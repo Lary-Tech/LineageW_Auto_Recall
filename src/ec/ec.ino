@@ -28,20 +28,9 @@ void loop()
    
     if( be_attacked ){
         
-        /*//截圖
-        mouse.reset_mouse();
-        mouse.move(118, 16, 30);
-        mouse.click(1);*/
-       
         // 回程並購買藥水        
-        teleport_scroll();
-        delay(random(150, 1250));
-        buy_supply();
-        delay(random(150, 1250));
-
-        // 改圖
-        place.execute(DO_CHANGE_PLACE);
-
+        //teleport_scroll();
+        recall();
     }
 
     if( hp_not_enough ){
@@ -55,8 +44,6 @@ void loop()
         //Serial.println(pre_time);
         //Serial.println(current_time);
         if(current_time - pre_potion > LIMIT || pre_potion == 0){ // 10 分鐘以上
-          recall();
-          delay(random(750, 1250));
           buy_supply();
           delay(random(750, 1250));
           place.execute(DO_NOT_CHANGE_PLACE);
@@ -78,10 +65,18 @@ void recall(){
 }
 
 void teleport_scroll(){
+  
+  //截圖
+  mouse.reset_mouse();
+  mouse.move(118, 17, 30);
+  mouse.click(1);
+  mouse.move(-2, 5, 30);
+  mouse.click(4); // 中鍵
   mouse.reset_mouse();
   mouse.move(0, 3, 30);
   mouse.click(4); // 中鍵
-  mouse.click(4); // 中鍵
+  mouse.move(62, 38, 30);
+  
 }
 
 void hp(){

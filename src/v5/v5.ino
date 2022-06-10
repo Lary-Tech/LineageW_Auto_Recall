@@ -42,7 +42,12 @@ void loop()
     }
 
     if( hp_not_enough || en_hp_not_enough ){
-        hp(); // 按鍵7 的強效藥水 
+        //hp(); // 按鍵7 的強效藥水 
+        teleport_scroll();
+        delay(random(750, 1250));
+        buy_supply();
+        delay(random(750, 1250));
+        place.execute(place.DO_NOT_CHANGE_PLACE);
     }
 
     if(en_be_attacked ){
