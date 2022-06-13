@@ -10,8 +10,11 @@ class Place{
     public:
         Place();
         ~Place();
-        enum change_flag{ DO_NOT_CHANGE_PLACE, DO_CHANGE_PLACE };
-        void execute(change_flag);
+        // enum change_flag{ DO_NOT_CHANGE_PLACE, DO_CHANGE_PLACE };
+        bool DO_NOT_CHANGE_PLACE = false;
+        bool DO_CHANGE_PLACE = true;
+        // void execute(change_flag);
+        void execute(bool);
         void execute(int);
     private:
         place_func place_array[10];
