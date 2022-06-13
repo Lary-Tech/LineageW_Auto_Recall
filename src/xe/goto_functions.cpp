@@ -291,7 +291,6 @@ void marked_locations(int place){ //<<<<<<<<<<<<
   delay(1250);
   mouse.click(1);
   mouse.reset_mouse();
-  mouse.move(62, 38, 30);
 }
 
 void Favorites_Tag1(int place){ //<<<<<<<<<<<< 不加標誌
@@ -336,7 +335,6 @@ void Favorites_Tag1(int place){ //<<<<<<<<<<<< 不加標誌
   delay(1250);
   mouse.click(1);
   mouse.reset_mouse();
-  mouse.move(62, 38, 30);
 }
 
 void Favorites_Tag2(int place){ //<<<<<<<<<<<<加入標誌
@@ -396,7 +394,7 @@ void Favorites_Tag2(int place){ //<<<<<<<<<<<<加入標誌
   mouse.move(65, 35, 30); //移動
   delay(1250);
   mouse.click(1);
-  delay(45000);
+  delay(25000);
   
   // 自動
   mouse.reset_mouse();
@@ -406,7 +404,6 @@ void Favorites_Tag2(int place){ //<<<<<<<<<<<<加入標誌
   delay(1250);
   mouse.click(1);
   mouse.reset_mouse();
-  mouse.move(62, 38, 30);
 }
 
 
@@ -547,144 +544,4 @@ void Favorites_Tag4(int place){ //<<<<<<<<<<<<Elvis Lin 亞丁3
   delay(1250);
   mouse.click(1);
   mouse.reset_mouse();
-}
-
-void Favorites_Tag5(int place){ //<<<<<<<<<<<<加入標誌
-  Mouse mouse;
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(110, 11, 30); //點地圖
-  delay(100);
-  mouse.click(1);
-  mouse.click(1);
-
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(15, 18, 30); //點書籤
-  delay(100);
-  mouse.click(1);
-
-  // 選圖
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(15, 22 + 3*place, 30); //選擇書籤順序
-  delay(random(750, 1250));
-  mouse.click(1);
-
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(110, 61, 30); //金幣傳送
-  delay(1000);
-  mouse.click(1);
-
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(62, 38, 30); //確認 
-  delay(1250);
-  mouse.click(1);
-
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(110, 11, 30); //點地圖
-  delay(100);
-  mouse.click(1);
-
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(11, 36, 30); //點標誌
-  delay(200);
-  mouse.click(1);
-
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(15, 39 + 3*place, 30); //選擇標誌順序
-  delay(1000);
-  mouse.click(1);
-
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(65, 35, 30); //移動
-  delay(1250);
-  mouse.click(1);
-  delay(10000);
-  
-  // 自動
-  mouse.reset_mouse();
-
-  delay(1000); //<<<<<<<<<
-  mouse.move(111, 46, 30); //自動練功
-  delay(1250);
-  mouse.click(1);
-  mouse.reset_mouse();
-  mouse.move(62, 38, 30);
-}
-
-void Favorites_Tag6(int place){ //<<<<<<<<<<<<加入標誌
-  Mouse mouse;
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(110, 11, 30); //點地圖
-  delay(100);
-  mouse.click(1);
-  mouse.click(1);
-
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(15, 18, 30); //點書籤
-  delay(100);
-  mouse.click(1);
-
-  // 選圖
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(15, 22 + 3*place, 30); //選擇書籤順序
-  delay(random(750, 1250));
-  mouse.click(1);
-
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(110, 61, 30); //金幣傳送
-  delay(1000);
-  mouse.click(1);
-
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(62, 38, 30); //確認 
-  delay(1250);
-  mouse.click(1);
-
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(110, 11, 30); //點地圖
-  delay(100);
-  mouse.click(1);
-
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(11, 36, 30); //點標誌
-  delay(200);
-  mouse.click(1);
-
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(15, 39 + 3*place, 30); //選擇標誌順序
-  delay(1000);
-  mouse.click(1);
-
-  mouse.reset_mouse();
-  delay(1000);
-  mouse.move(65, 35, 30); //移動
-  delay(1250);
-  mouse.click(1);
-  delay(25000);
-  
-  // 自動
-  mouse.reset_mouse();
-
-  delay(1000); //<<<<<<<<<
-  mouse.move(111, 46, 30); //自動練功
-  delay(1250);
-  mouse.click(1);
-  mouse.reset_mouse();
-  mouse.move(62, 38, 30);
 }

@@ -52,8 +52,6 @@ void loop()
         //Serial.println(pre_time);
         //Serial.println(current_time);
         if(current_time - pre_potion > LIMIT || pre_potion == 0){ // 10 分鐘以上
-          recall();
-          delay(random(750, 1250));
           buy_supply();
           delay(random(750, 1250));
           place.execute(DO_NOT_CHANGE_PLACE);

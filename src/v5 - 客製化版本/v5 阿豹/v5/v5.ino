@@ -32,7 +32,7 @@ void loop()
         
        
         // 回程並購買藥水        
-        teleport_scroll();
+        recall();
         delay(random(150, 1250));
         buy_supply();
         delay(random(150, 1250));
@@ -42,15 +42,20 @@ void loop()
     }
 
     if( hp_not_enough || en_hp_not_enough ){
-        hp(); // 按鍵7 的強效藥水 
+
+        buy_supply();
+        delay(random(150, 1250));
+
+        // 改圖
+        place.execute(place.DO_CHANGE_PLACE);
         
-       /* buy_supply();
-        delay(random(750, 1250));
-        place.execute(place.DO_NOT_CHANGE_PLACE);*/
+      //hp(); // 按鍵7 的強效藥水 
     }
 
     if(en_be_attacked ){
-        teleport_scroll(); // 按鍵7 的強效藥水 
+
+        
+        teleport_scroll(); // 按鍵7 
     }
 
     unsigned long current_time = millis();
@@ -59,7 +64,6 @@ void loop()
         //Serial.println(pre_time);
         //Serial.println(current_time);
         if(current_time - pre_potion > LIMIT || pre_potion == 0){ // 10 分鐘以上
-          
           buy_supply();
           delay(random(750, 1250));
           place.execute(place.DO_NOT_CHANGE_PLACE);
@@ -75,10 +79,10 @@ void loop()
 
 void recall(){
   //截圖
-  //mouse.reset_mouse();
-  //mouse.move(118, 16, 30);
-  //mouse.click(1);
-  //mouse.move(-2, 5, 30);
+  mouse.reset_mouse();
+  mouse.move(118, 16, 30);
+  mouse.click(1);
+  mouse.move(-2, 5, 30);
   mouse.click(4); // 中鍵
   mouse.reset_mouse();
   mouse.move(0, 3, 30);
