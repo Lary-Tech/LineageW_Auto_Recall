@@ -24,9 +24,6 @@ void loop()
     bool be_attacked = ( analogRead(0) > 500 ? true : false );   // A25 遭受敵人攻擊了
     bool hp_not_enough = ( analogRead(1) > 500 ? true : false );   // A26 體力不足了
     bool need_potion = ( analogRead(2) > 500 ? true : false );   // A27 需要補充藥水
-    bool en_be_attacked = ( analogRead(3) > 500 ? true : false ); // B0 English 遭受敵人攻擊
-    bool en_need_potion = ( analogRead(4) > 500 ? true : false );   // B1 English 需要補充藥水
-    bool en_hp_not_enough = ( analogRead(5) > 500 ? true : false );   // B2 English 體力不足了
 
     bool trigger = ( digitalRead(7) ? 0 : 1 );   // 聽聲音瞬間觸發
 
@@ -48,17 +45,14 @@ void loop()
         place.execute(DO_CHANGE_PLACE);
     }
 
-    if( hp_not_enough || en_hp_not_enough ){
+    if( hp_not_enough ){
         hp(); // 按鍵7 的強效藥水 
     }
 
-    if(en_be_attacked ){
-        teleport_scroll(); 
-    }
 
     unsigned long current_time = millis();
 
-    if( need_potion || en_need_potion ){
+    if( need_potion ){
         //Serial.println(pre_time);
         //Serial.println(current_time);
         if(current_time - pre_potion > LIMIT || pre_potion == 0){ // 10 分鐘以上
@@ -79,16 +73,10 @@ void loop()
 void recall(){
   
   mouse.click(4); // 中鍵
+  delay(200);
   mouse.click(4); // 中鍵
 
-}
 
-void teleport_scroll(){
-  mouse.reset_mouse();
-  mouse.move(0, 3, 30);
-  mouse.click(4); // 中鍵
-  mouse.click(4); // 中鍵
-  mouse.move(62, 38, 30);
 }
 
 void hp(){
