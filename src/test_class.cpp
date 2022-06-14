@@ -16,6 +16,7 @@ private:
 
 Place::Place(){
     n_place = 0;
+    count_place = 0;
     insert_place();
     insert_place();
 }
@@ -25,6 +26,7 @@ Place::~Place(){}
 void Place::execute(bool flag){
   if(flag){
     count_place++;
+    cout << count_place << " " << n_place << endl;
     if(count_place >= n_place){
       count_place = 0;
     }
@@ -45,10 +47,6 @@ int main(){
     Place p;
     p.execute(true);
     p.printprint();
-    p.execute(true);
-    p.printprint();
     p.execute(false);
-    p.printprint();
-    p.execute(true);
     p.printprint();
 }
