@@ -32,14 +32,14 @@ void Place::execute(bool flag){
   int i = count_place;
   void(*func)(int) = place_array[i].func;
   int arg = place_array[i].arg;
-
+  
   func(arg);
 
   if(flag){
-    count_place++;
+    this->count_place++;
     
     if(count_place >= n_place+1){
-      count_place = 0;
+      this->count_place = 0;
     }
   }
 }
@@ -52,9 +52,9 @@ void Place::execute(int i){
 }
 
 void Place::insert_place(void(*func)(int), int arg){
-  int n = n_place;
+  int n = this->n_place;
   place_array[n].func = func;
   place_array[n].arg = arg;
 
-  n_place = n + 1;
+  this->n_place = n + 1;
 }
