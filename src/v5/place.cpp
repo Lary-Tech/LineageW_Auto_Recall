@@ -4,6 +4,7 @@
 
 Place::Place(){
     n_place = 0;
+    count_place = 0;
     insert_place(&Favorites_Tag2, 0);
 
    
