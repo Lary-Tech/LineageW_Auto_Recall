@@ -66,7 +66,7 @@ void loop()
 
           pre_potion = current_time;
         }else{ // 停止
-          recall();
+          buy_supply();
 
           pre_potion = current_time;
         }

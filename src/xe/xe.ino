@@ -40,7 +40,6 @@ void loop()
 
     if( be_attacked ){
 
-
         // 回程並購買藥水        
         buy_supply();
         delay(random(150, 1250));
@@ -70,7 +69,7 @@ void loop()
 
           pre_potion = current_time;
         }else{ // 停止
-          recall();
+          buy_supply();
 
           pre_potion = current_time;
         }
@@ -78,16 +77,10 @@ void loop()
 }
 
 void recall(){
-  //截圖
-  //mouse.reset_mouse();
-  //mouse.move(118, 16, 30);
-  //mouse.click(1);
-  //mouse.move(-2, 5, 30);
+  
   mouse.click(4); // 中鍵
-  mouse.reset_mouse();
-  mouse.move(0, 3, 30);
   mouse.click(4); // 中鍵
-  mouse.move(62, 38, 30);
+
 }
 
 void teleport_scroll(){
@@ -95,6 +88,7 @@ void teleport_scroll(){
   mouse.move(0, 3, 30);
   mouse.click(4); // 中鍵
   mouse.click(4); // 中鍵
+  mouse.move(62, 38, 30);
 }
 
 void hp(){
@@ -104,6 +98,8 @@ void hp(){
   mouse.click(1);
   delay(100);
   mouse.click(1);
+  mouse.move(-30, -30, 30);
+  
 }
 
 void buy_supply(){
