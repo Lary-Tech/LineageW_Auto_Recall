@@ -3,7 +3,7 @@
 #include "goto_functions.h"
 
 Place::Place(){
-    
+    n_place = 0;
     insert_place(&Favorites_Tag2, 0);
 
    
@@ -36,10 +36,10 @@ void Place::execute(bool flag){
   func(arg);
 
   if(flag){
-    this->count_place++;
+    count_place++;
     
     if(count_place >= n_place+1){
-      this->count_place = 0;
+      count_place = 0;
     }
   }
 }
@@ -52,9 +52,9 @@ void Place::execute(int i){
 }
 
 void Place::insert_place(void(*func)(int), int arg){
-  int n = this->n_place;
+  int n = n_place;
   place_array[n].func = func;
   place_array[n].arg = arg;
 
-  this->n_place = n + 1;
+  n_place = n + 1;
 }
