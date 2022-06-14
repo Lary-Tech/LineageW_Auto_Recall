@@ -25,7 +25,7 @@ Place::~Place(){}
 void Place::execute(bool flag){
   if(flag){
     count_place++;
-    if(count_place >= n_place+1){
+    if(count_place >= n_place){
       count_place = 0;
     }
   }
@@ -44,6 +44,10 @@ void Place::printprint(){
 int main(){
     Place p;
     p.execute(true);
+    p.printprint();
+    p.execute(true);
+    p.printprint();
+    p.execute(false);
     p.printprint();
     p.execute(true);
     p.printprint();
