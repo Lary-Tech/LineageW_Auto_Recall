@@ -45,7 +45,7 @@ void loop()
         delay(random(150, 1250));
 
         // 改圖
-        place.execute(DO_CHANGE_PLACE);
+        place.execute(place.DO_CHANGE_PLACE);
     }
 
     if( hp_not_enough || en_hp_not_enough ){
@@ -65,7 +65,7 @@ void loop()
 
           buy_supply();
           delay(random(750, 1250));
-          place.execute(DO_NOT_CHANGE_PLACE);
+          place.execute(place.DO_NOT_CHANGE_PLACE);
 
           pre_potion = current_time;
         }else{ // 停止
