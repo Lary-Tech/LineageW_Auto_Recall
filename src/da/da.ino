@@ -42,7 +42,7 @@ void loop()
         delay(random(150, 1250));
 
         // 改圖
-        place.execute(DO_CHANGE_PLACE);
+        place.execute(place.DO_CHANGE_PLACE);
     }
 
     if( hp_not_enough ){
@@ -59,7 +59,7 @@ void loop()
 
           buy_supply();
           delay(random(750, 1250));
-          place.execute(DO_NOT_CHANGE_PLACE);
+          place.execute(place.DO_NOT_CHANGE_PLACE);
 
           pre_potion = current_time;
         }else{ // 停止
@@ -76,12 +76,11 @@ void recall(){
   delay(200);
   mouse.click(4); // 中鍵
 
-
 }
 
 void hp(){
   mouse.reset_mouse();
-  delay(1000);
+  delay(200);
   mouse.move(107, 60, 30);
   mouse.click(1);
   delay(100);
@@ -92,7 +91,6 @@ void hp(){
 
 void buy_supply(){
   mouse.reset_mouse();
-  delay(100);
   mouse.move(110, 60, 30); //回捲
   mouse.click(1);
   mouse.click(1);

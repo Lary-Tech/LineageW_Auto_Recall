@@ -25,6 +25,7 @@ void loop()
     bool hp_not_enough = ( analogRead(1) > 500 ? true : false );   // A26 體力不足了
     bool need_potion = ( analogRead(2) > 500 ? true : false );   // A27 需要補充藥水
 
+
     bool trigger = ( digitalRead(7) ? 0 : 1 );   // 聽聲音瞬間觸發
 
     if(trigger){
@@ -35,12 +36,15 @@ void loop()
       trigger_count = 0;
     }
 
-    if( be_attacked ){
+    /*if( be_attacked ){
 
         // 回程並購買藥水        
-        teleport_scroll();
+        buy_supply();
+        delay(random(150, 1250));
 
-    }
+        // 改圖
+        place.execute(place.DO_CHANGE_PLACE);
+    }*/
 
     if( hp_not_enough ){
         hp(); // 按鍵7 的強效藥水 
@@ -56,7 +60,7 @@ void loop()
 
           buy_supply();
           delay(random(750, 1250));
-          place.execute(DO_NOT_CHANGE_PLACE);
+          place.execute(place.DO_NOT_CHANGE_PLACE);
 
           pre_potion = current_time;
         }else{ // 停止
@@ -73,13 +77,6 @@ void recall(){
   delay(200);
   mouse.click(4); // 中鍵
 
-}
-
-void teleport_scroll(){
-  mouse.reset_mouse();
-  mouse.move(0, 3, 30);
-  mouse.click(4); // 中鍵
-  mouse.move(62, 38, 30);
 }
 
 void hp(){
