@@ -15,6 +15,8 @@ void setup()
 {
     Serial.begin(9600);
 
+    delay(3000);
+
     pre_potion = 0;
 }
 
