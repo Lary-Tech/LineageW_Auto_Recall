@@ -22,6 +22,7 @@ void setup()
 
 int trigger_count = 0;
 int change_place_delay = 0;
+int DELAY_TIME = 20000;
 void loop()
 {
     bool be_attacked = ( analogRead(0) > 500 ? true : false );   // A25 遭受敵人攻擊了
@@ -33,9 +34,9 @@ void loop()
 
     bool trigger = ( digitalRead(7) ? 0 : 1 );   // 聽聲音瞬間觸發
 
-    if(change_place_delay >= 1000){
+    if(change_place_delay >= 100){
       change_place_delay --;
-    }else{
+    }else if(change_place_delay != 0){
       // 自動
       mouse.reset_mouse();
 
@@ -64,15 +65,17 @@ void loop()
         // 改圖
         place.execute(place.DO_CHANGE_PLACE);
 
-        change_place_delay = 40000 * 4;
+        change_place_delay = DELAY_TIME;
     }
 
     if( hp_not_enough || en_hp_not_enough ){
         hp(); // 按鍵7 的強效藥水 
+        change_place_delay = 0;
     }
 
     if(en_be_attacked ){
         teleport_scroll(); 
+        change_place_delay = 0;
     }
 
     unsigned long current_time = millis();
@@ -88,13 +91,17 @@ void loop()
 
           pre_potion = current_time;
 
-          change_place_delay = 40000 * 4;
+          change_place_delay = DELAY_TIME;
         }else{ // 停止
           buy_supply();
 
           pre_potion = current_time;
+
+          change_place_delay = 0;
         }
     }
+
+    delay(1);
 }
 
 void recall(){
