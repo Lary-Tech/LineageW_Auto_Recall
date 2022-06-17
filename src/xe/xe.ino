@@ -81,6 +81,7 @@ void loop()
 void recall(){
   
   mouse.click(4); // 中鍵
+  delay(200);
   mouse.click(4); // 中鍵
 
 }
