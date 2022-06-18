@@ -76,11 +76,11 @@ void loop()
         mouse.click(1);
         mouse.move(7, -7, 30);
         mouse.click(1); 
-        teleport_scroll();
-        delay(random(750, 1250));
-        buy_supply();
-        delay(random(750, 1250));
-        place.execute(DO_NOT_CHANGE_PLACE);
+        delay(200);
+        mouse.reset_mouse();
+        mouse.move(107, 51, 30); //指標按鈕
+        delay(1000);
+        mouse.click(1);
         mouse.reset_mouse();
         mouse.move(30, 66, 30);
         mouse.click(1);
