@@ -46,6 +46,8 @@ void loop()
       mouse.click(1);
       delay(500);
       mouse.move(-30, -30, 30);
+
+      change_place_delay = 0;
     }else if(change_place_delay < 0){
       change_place_delay = 0;
     }
