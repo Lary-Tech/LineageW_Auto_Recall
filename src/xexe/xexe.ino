@@ -22,7 +22,7 @@ void setup()
 
 int trigger_count = 0;
 int change_place_delay = 0;
-int DELAY_TIME = 20000;
+long long int DELAY_TIME = 20000;
 void loop()
 {
     bool be_attacked = ( analogRead(0) > 500 ? true : false );   // A25 遭受敵人攻擊了
@@ -136,8 +136,7 @@ void hp(){
 
 void buy_supply(){
   mouse.reset_mouse();
-  delay(100);
-  mouse.move(110, 60, 30); //回捲
+  mouse.move(111, 60, 30); //回捲
   mouse.click(1);
   mouse.click(1);
   mouse.click(1);
@@ -150,47 +149,73 @@ void buy_supply(){
   mouse.click(1);
   mouse.click(1);
   mouse.click(1);
+  mouse.click(1);
+  mouse.click(1);
+  mouse.click(1);
+  mouse.click(1);
+  mouse.click(1);
+  mouse.click(1);
+  mouse.click(1);
+
   delay(2000);
+  mouse.move(-1, -49, 30); //小地圖..110,11
+  delay(1500);
+  mouse.click(1);
+
+
+  mouse.move(-95, 3, 30); //領地15,14
+  delay(500);
+  mouse.click(1);
+
+  delay(500);
+  mouse.move(0, 12, 30); //古魯丁領地15,26
+  delay(500);
+  mouse.click(1);
+
+  delay(500);
+  mouse.move(-4, 14, 30); //肯特村莊11,40
+  delay(500);
+  mouse.click(1);
+
+  delay(500);
+  mouse.move(99, 21, 30); //傳送110,61
+  delay(500);
+  mouse.click(1);
+
+  delay(500);
+  mouse.move(-48, -23, 30); //確定...62,38
+  delay(500);
+  mouse.click(1);
   
-  mouse.reset_mouse();
   
-  delay(1000);
-  mouse.move(107, 51, 30); //指標按鈕
   delay(2000);
+  mouse.move(45, 13, 30); //指標按鈕107,51
+  delay(500);
   mouse.click(1);
 
-  mouse.reset_mouse();
-  
-  delay(1000);
-  mouse.move(67, 33, 30);//商人
+  delay(500);
+  mouse.move(-40, -18, 30);//商人67,33
   mouse.click(1);
 
-  mouse.reset_mouse();
   
-  delay(1000);
-  mouse.move(71, 33, 30);//移動
+  delay(500);
+  mouse.move(4, 0, 30);//移動71,33
   mouse.click(1);
 
-  mouse.reset_mouse();
-
-  delay(15000);
+  delay(10000);
   
-  delay(1000);
-  mouse.move(103, 61, 30); //自動購買
-  delay(1000);
+  delay(500);
+  mouse.move(32, 28, 30); //自動購買103,61
+  delay(500);
   mouse.click(1);
 
-  mouse.reset_mouse();
-  
-  delay(1000);
-  mouse.move(110, 61, 30); //全部購買
-  delay(1000);
+  delay(500);
+  mouse.move(7, 0, 30); //全部購買110,61
+  delay(500);
   mouse.click(1);
-
-  mouse.reset_mouse();
   
-  delay(1000);
-  mouse.move(115, 4, 30); //結束視窗
-  delay(1000);
+  delay(500);
+  mouse.move(5, -57, 30); //結束視窗115,4
+  delay(500);
   mouse.click(1);
 }

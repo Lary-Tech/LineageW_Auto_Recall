@@ -93,7 +93,7 @@ void hp(){
 void buy_supply(){
   mouse.reset_mouse();
   delay(100);
-  mouse.move(110, 60, 30); //回捲
+  mouse.move(111, 60, 30); //回捲
   mouse.click(1);
   mouse.click(1);
   mouse.click(1);
