@@ -15,6 +15,13 @@ Place::Place(){
     insert_place(&Favorites_Tag2, 1);
     insert_place(&Favorites_Tag2, 2);
 
+    // 指定第幾個圖要不要 wait
+    need_wait[0] = false;
+    need_wait[1] = false;
+    need_wait[2] = false;
+    need_wait[3] = false;
+    need_wait[4] = false;
+    need_wait[5] = false;
 }
 
 Place::~Place(){
@@ -65,4 +72,8 @@ void Place::insert_place(void(*func)(int), int arg){
   place_array[n].arg = arg;
 
   n_place = n + 1;
+}
+
+bool Place::isWait(){
+  return need_wait[count_place];
 }

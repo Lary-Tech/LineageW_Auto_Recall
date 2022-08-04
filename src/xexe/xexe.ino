@@ -69,7 +69,12 @@ void loop()
         // 改圖
         place.execute(place.DO_CHANGE_PLACE);
 
-        change_place_delay = DELAY_TIME;
+        //查看是否需要等待
+        if( place.isWait() ){
+          change_place_delay = DELAY_TIME;
+        } else {
+          change_place_delay = 100;
+        } 
     }
 
     if( hp_not_enough ){
@@ -110,7 +115,12 @@ void loop()
 
           pre_potion = current_time;
 
-          change_place_delay = DELAY_TIME;
+          //查看是否需要等待
+          if( place.isWait() ){
+            change_place_delay = DELAY_TIME;
+          } else {
+            change_place_delay = 100;
+          } 
         }else{ // 停止
           buy_supply();
 

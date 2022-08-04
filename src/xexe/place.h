@@ -16,10 +16,12 @@ class Place{
         // void execute(change_flag);
         void execute(bool);
         void execute(int);
+        bool isWait();
     private:
         place_func place_array[10];
         int n_place;
         int count_place;
+        bool need_wait[10];
 
         void insert_place(void(*)(int), int);
 };
