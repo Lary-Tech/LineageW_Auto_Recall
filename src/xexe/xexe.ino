@@ -28,9 +28,9 @@ void loop()
     bool be_attacked = ( analogRead(0) > 500 ? true : false );   // A25 遭受敵人攻擊了
     bool hp_not_enough = ( analogRead(1) > 500 ? true : false );   // A26 體力不足了
     bool need_potion = ( analogRead(2) > 500 ? true : false );   // A27 需要補充藥水
-    bool en_be_attacked = ( analogRead(3) > 500 ? true : false ); // B0 English 遭受敵人攻擊
-    bool en_need_potion = ( analogRead(4) > 500 ? true : false );   // B1 English 需要補充藥水
-    bool en_hp_not_enough = ( analogRead(5) > 500 ? true : false );   // B2 English 體力不足了
+    // bool en_be_attacked = ( analogRead(3) > 500 ? true : false ); // B0 English 遭受敵人攻擊
+    // bool en_need_potion = ( analogRead(4) > 500 ? true : false );   // B1 English 需要補充藥水
+    // bool en_hp_not_enough = ( analogRead(5) > 500 ? true : false );   // B2 English 體力不足了
 
     bool trigger = ( digitalRead(7) ? 0 : 1 );   // 聽聲音瞬間觸發
 
@@ -72,19 +72,34 @@ void loop()
         change_place_delay = DELAY_TIME;
     }
 
-    if( hp_not_enough || en_hp_not_enough ){
+    if( hp_not_enough ){
+
+        buy_supply();
+        place.execute(place.DO_NOT_CHANGE_PLACE);
+        change_place_delay = DELAY_TIME;
+        //hp(); // 按鍵7 的強效藥水 
+        //change_place_delay = 0;
+    }
+
+    /*if( en_hp_not_enough ){
         hp(); // 按鍵7 的強效藥水 
         change_place_delay = 0;
     }
 
+    if( en_need_potion ){
+        buy_supply();
+        place.execute(place.DO_NOT_CHANGE_PLACE);
+        change_place_delay = DELAY_TIME;
+    }
+    
     if(en_be_attacked ){
         teleport_scroll(); 
         change_place_delay = 0;
-    }
+    }*/
 
     unsigned long current_time = millis();
 
-    if( need_potion || en_need_potion ){
+    if( need_potion ){
         //Serial.println(pre_time);
         //Serial.println(current_time);
         if(current_time - pre_potion > LIMIT || pre_potion == 0){ // 10 分鐘以上
@@ -111,6 +126,7 @@ void loop()
 void recall(){
   
   mouse.click(4); // 中鍵
+  delay(200);
   mouse.click(4); // 中鍵
 
 }
@@ -136,7 +152,11 @@ void hp(){
 
 void buy_supply(){
   mouse.reset_mouse();
-  mouse.move(111, 60, 30); //回捲
+  delay(200);
+  //mouse.move(0, 3, 30);
+  //mouse.click(4); // 中鍵
+  //mouse.click(4); // 中鍵
+  mouse.move(111, 60, 30); //回捲110,60
   mouse.click(1);
   mouse.click(1);
   mouse.click(1);
@@ -164,58 +184,58 @@ void buy_supply(){
 
 
   mouse.move(-95, 3, 30); //領地15,14
-  delay(500);
+  delay(random(1000, 1200));
   mouse.click(1);
 
-  delay(500);
+  delay(random(1000, 1200));
   mouse.move(0, 12, 30); //古魯丁領地15,26
-  delay(500);
+  delay(random(1000, 1200));
   mouse.click(1);
 
-  delay(500);
+  delay(random(1000, 1200));
   mouse.move(-4, 14, 30); //肯特村莊11,40
-  delay(500);
+  delay(random(1000, 1200));
   mouse.click(1);
 
-  delay(500);
+  delay(random(1000, 1200));
   mouse.move(99, 21, 30); //傳送110,61
-  delay(500);
+  delay(random(1000, 1200));
   mouse.click(1);
 
-  delay(500);
+  delay(random(1000, 1200));
   mouse.move(-48, -23, 30); //確定...62,38
-  delay(500);
+  delay(random(1000, 1200));
   mouse.click(1);
   
   
-  delay(2000);
+  delay(12000);
   mouse.move(45, 13, 30); //指標按鈕107,51
-  delay(500);
+  delay(random(1000, 1200));
   mouse.click(1);
 
-  delay(500);
+  delay(random(1000, 1200));
   mouse.move(-40, -18, 30);//商人67,33
   mouse.click(1);
 
   
-  delay(500);
+  delay(random(1000, 1200));
   mouse.move(4, 0, 30);//移動71,33
   mouse.click(1);
 
   delay(10000);
   
-  delay(500);
+  delay(random(1000, 1200));
   mouse.move(32, 28, 30); //自動購買103,61
-  delay(500);
+  delay(random(1000, 1200));
   mouse.click(1);
 
-  delay(500);
+  delay(random(1000, 1200));
   mouse.move(7, 0, 30); //全部購買110,61
-  delay(500);
+  delay(random(1000, 1200));
   mouse.click(1);
   
-  delay(500);
+  delay(random(1000, 1200));
   mouse.move(5, -57, 30); //結束視窗115,4
-  delay(500);
+  delay(random(1000, 1200));
   mouse.click(1);
 }

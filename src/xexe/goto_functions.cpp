@@ -40,62 +40,69 @@ void marked_locations(int place){ //<<<<<<<<<<<<
 void Favorites_Tag1(int place){ //<<<<<<<<<<<< 不加標誌
   Mouse mouse;
   mouse.reset_mouse();
+  delay(1000);
   mouse.move(110, 11, 30); //點地圖
-  delay(random(300, 700));
+  delay(100);
   mouse.click(1);
   mouse.click(1);
 
-  delay(2000);
-  mouse.move(-95, 7, 30); //點書籤15,18
-  delay(random(300, 700));
+  mouse.reset_mouse();
+  delay(1000);
+  mouse.move(15, 18, 30); //點書籤
+  delay(100);
   mouse.click(1);
 
   // 選圖
-  delay(random(300, 700));
-  mouse.move(0, 4 + 3*place, 30); //選擇書籤順序15,22
-  delay(random(300, 700));
+  mouse.reset_mouse();
+  delay(1000);
+  mouse.move(15, 22 + 3*place, 30); //選擇書籤順序
+  delay(random(750, 1250));
   mouse.click(1);
 
-  delay(random(300, 700));
-  mouse.move(95, 40, 30); //金幣傳送110,61
-  delay(random(300, 700));
+  mouse.reset_mouse();
+  delay(1000);
+  mouse.move(110, 61, 30); //金幣傳送
+  delay(1000);
   mouse.click(1);
 
-  delay(random(300, 700));
-  mouse.move(-48, -23, 30); //確認62,38
-  delay(random(300, 700));
+  mouse.reset_mouse();
+  delay(1000);
+  mouse.move(62, 38, 30); //確認 
+  delay(1250);
   mouse.click(1);
 
   // 自動
+  mouse.reset_mouse();
+
   delay(1000); //<<<<<<<<<
-  mouse.move(-49, 8, 30); //自動練功111,46
-  delay(random(300, 700));
+  mouse.move(111, 46, 30); //自動練功
+  delay(1250);
   mouse.click(1);
-  delay(random(300, 700));
-  mouse.move(-20, -20, 30);
+  delay(500);
+  mouse.move(-30, -30, 30);
 }
 
 void Favorites_Tag2(int place){ //<<<<<<<<<<<<加入標誌
   Mouse mouse;
   mouse.reset_mouse();
   mouse.move(110, 11, 30); //點地圖
-  delay(random(300, 700));
+  delay(random(500, 700));
   mouse.click(1);
   mouse.click(1);
 
   delay(2000);
   mouse.move(-95, 7, 30); //點書籤15,18
-  delay(random(300, 700));
+  delay(random(500, 700));
   mouse.click(1);
 
   // 選圖
-  delay(random(300, 700));
+  delay(random(500, 700));
   mouse.move(0, 4 + 3*place, 30); //選擇書籤順序15,22
-  delay(random(300, 700));
+  delay(random(500, 700));
   mouse.click(1);
 
   delay(random(300, 700));
-  mouse.move(95, 38, 30); //金幣傳送110,61
+  mouse.move(95, 39 - 3*place, 30); //金幣傳送110,61
   delay(random(300, 700));
   mouse.click(1);
 
@@ -119,7 +126,7 @@ void Favorites_Tag2(int place){ //<<<<<<<<<<<<加入標誌
   mouse.click(1);
 
 
-  mouse.move(50, -4, 30); //移動
+  mouse.move(50, -4 - 3*place, 30); //移動
   delay(random(100, 200));
   mouse.click(1);
 }

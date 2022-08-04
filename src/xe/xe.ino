@@ -169,7 +169,7 @@ void buy_supply(){
   mouse.click(1);
   
   
-  delay(2000);
+  delay(15000);
   mouse.move(45, 13, 30); //指標按鈕107,51
   delay(500);
   mouse.click(1);
