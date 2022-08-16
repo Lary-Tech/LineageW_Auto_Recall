@@ -15,7 +15,7 @@ class Place{
         bool DO_CHANGE_PLACE = true;
         // void execute(change_flag);
         void execute(bool);
-        void execute(int);
+        void gotoPlace(int);
         bool isWait();
     private:
         place_func place_array[10];

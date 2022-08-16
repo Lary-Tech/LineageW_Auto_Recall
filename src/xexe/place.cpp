@@ -59,7 +59,7 @@ void Place::execute(bool flag){
   }
 }
 
-void Place::execute(int i){
+void Place::gotoPlace(int i){
   void(*func)(int) = place_array[i].func;
   int arg = place_array[i].arg;
 
