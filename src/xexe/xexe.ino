@@ -24,6 +24,7 @@ void setup()
 
 int trigger_count = 0;
 int change_place_delay = 0;
+int change_placeEnglish_delay = 0;
 long long int DELAY_TIME = 20000; //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<行走秒數
 void loop()
 {
@@ -96,9 +97,9 @@ void loop()
 
         //查看是否需要等待
         if( place.isWait() ){
-          change_place_delay = DELAY_TIME;
+          change_placeEnglish_delay = DELAY_TIME;
         } else {
-          change_place_delay = 100;
+          change_placeEnglish_delay = 100;
         } 
     }
 
@@ -136,9 +137,9 @@ void loop()
 
         //查看是否需要等待
         if( place.isWait() ){
-          change_place_delay = DELAY_TIME;
+          change_placeEnglish_delay = DELAY_TIME;
         } else {
-          change_place_delay = 100;
+          change_placeEnglish_delay = 100;
         } 
     }
 
@@ -156,9 +157,9 @@ void loop()
 
         //查看是否需要等待
         if( place.isWait() ){
-          change_place_delay = DELAY_TIME;
+          change_placeEnglish_delay = DELAY_TIME;
         } else {
-          change_place_delay = 100;
+          change_placeEnglish_delay = 100;
         } 
     }
     

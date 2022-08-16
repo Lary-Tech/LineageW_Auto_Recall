@@ -5,20 +5,20 @@
 Place::Place(){
     n_place = 0;
 
-    insert_place(&Favorites_Tag2, 0);
+    insert_place(&Favorites_Tag1, 0);
     insert_place(&Favorites_Tag2, 1);
     insert_place(&Favorites_Tag2, 2);
 
 
     count_place = 0;
-    insert_place(&Favorites_Tag2, 0);
+    insert_place(&Favorites_Tag1, 0);
     insert_place(&Favorites_Tag2, 1);
     insert_place(&Favorites_Tag2, 2);
 
     // 指定第幾個圖要不要 wait
     need_wait[0] = false;
-    need_wait[1] = false;
-    need_wait[2] = false;
+    need_wait[1] = true;
+    need_wait[2] = true;
     need_wait[3] = false;
     need_wait[4] = false;
     need_wait[5] = false;
