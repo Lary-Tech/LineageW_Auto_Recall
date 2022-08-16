@@ -124,6 +124,8 @@ void Favorites_Tag2(int place){ //<<<<<<<<<<<<加入標誌
   mouse.move(4, 3 + 3*place, 30); //選擇標誌順序
   delay(random(100, 200));
   mouse.click(1);
+  delay(random(1000, 2000));
+  mouse.click(1);
 
 
   mouse.move(50, -4 - 3*place, 30); //移動
