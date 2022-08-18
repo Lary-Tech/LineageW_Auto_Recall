@@ -63,25 +63,6 @@ void loop()
       trigger_count = 0;
     }
 
-    if( be_attacked ){ //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<中文被攻擊
-
-        // 回程並購買藥水
-        recall();        
-        buy_supply();
-        //stash_keeper();
-        receive_mail();
-        delay(random(150, 1250));
-
-        // 改圖
-        place.execute(place.DO_CHANGE_PLACE);
-
-        //查看是否需要等待
-        if( place.isWait() ){
-          change_place_delay = DELAY_TIME;
-        } else {
-          change_place_delay = 100;
-        } 
-    }
 
     if( en_be_attacked ){ //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<英文被攻擊
 
@@ -100,26 +81,6 @@ void loop()
           change_placeEnglish_delay = DELAY_TIME;
         } else {
           change_placeEnglish_delay = 100;
-        } 
-    }
-
-    if( hp_not_enough ){ //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<中文體力不足
-
-        // 回程並購買藥水
-        recall();          
-        buy_supply();
-        //stash_keeper();
-        receive_mail();
-        delay(random(150, 1250));
-
-        // 改圖
-        place.execute(place.DO_CHANGE_PLACE);
-
-        //查看是否需要等待
-        if( place.isWait() ){
-          change_place_delay = DELAY_TIME;
-        } else {
-          change_place_delay = 100;
         } 
     }
 
@@ -163,7 +124,46 @@ void loop()
         } 
     }
     
- 
+    if( be_attacked ){ //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<中文被攻擊
+
+        // 回程並購買藥水
+        recall();        
+        buy_supply();
+        //stash_keeper();
+        receive_mail();
+        delay(random(150, 1250));
+
+        // 改圖
+        place.execute(place.DO_CHANGE_PLACE);
+
+        //查看是否需要等待
+        if( place.isWait() ){
+          change_place_delay = DELAY_TIME;
+        } else {
+          change_place_delay = 100;
+        } 
+    }
+
+    if( hp_not_enough ){ //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<中文體力不足
+
+        // 回程並購買藥水
+        recall();          
+        buy_supply();
+        //stash_keeper();
+        receive_mail();
+        delay(random(150, 1250));
+
+        // 改圖
+        place.execute(place.DO_CHANGE_PLACE);
+
+        //查看是否需要等待
+        if( place.isWait() ){
+          change_place_delay = DELAY_TIME;
+        } else {
+          change_place_delay = 100;
+        } 
+    }
+    
     unsigned long current_time = millis();
 
     if( need_potion ){  //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<中文藥水不足

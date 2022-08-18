@@ -44,6 +44,24 @@ PlaceEnglish::~PlaceEnglish(){
 
 void PlaceEnglish::execute(bool flag){
   int i = count_placeEnglish;
+  if(flag){
+    i = i + 1;
+    
+    if(i >= n_placeEnglish){
+      i = 0;
+    }
+  }
+
+  void(*func)(int) = placeEnglish_array[i].func;
+  int arg = placeEnglish_array[i].arg;
+  
+  func(arg);
+  count_placeEnglish = i;
+}
+
+
+/*void PlaceEnglish::execute(bool flag){
+  int i = count_placeEnglish;
   void(*func)(int) = placeEnglish_array[i].func;
   int arg = placeEnglish_array[i].arg;
   
@@ -56,7 +74,7 @@ void PlaceEnglish::execute(bool flag){
       count_placeEnglish = 0;
     }
   }
-}
+}*/
 
 void PlaceEnglish::gotoPlaceEnglish(int i){
   void(*func)(int) = placeEnglish_array[i].func;

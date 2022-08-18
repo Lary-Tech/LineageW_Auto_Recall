@@ -5,23 +5,23 @@
 Place::Place(){
     n_place = 0;
 
-    insert_place(&Favorites_Tag1, 0);
+    insert_place(&Favorites_Tag2, 0);
     insert_place(&Favorites_Tag2, 1);
     insert_place(&Favorites_Tag2, 2);
 
 
     count_place = 0;
-    insert_place(&Favorites_Tag1, 0);
+    insert_place(&Favorites_Tag2, 0);
     insert_place(&Favorites_Tag2, 1);
     insert_place(&Favorites_Tag2, 2);
 
     // 指定第幾個圖要不要 wait
-    need_wait[0] = false;
+    need_wait[0] = true;
     need_wait[1] = true;
     need_wait[2] = true;
-    need_wait[3] = false;
-    need_wait[4] = false;
-    need_wait[5] = false;
+    need_wait[3] = true;
+    need_wait[4] = true;
+    need_wait[5] = true;
 }
 
 Place::~Place(){
@@ -42,8 +42,25 @@ Place::~Place(){
 //     }
 //   }
 // }
-
 void Place::execute(bool flag){
+  int i = count_place;
+  if(flag){
+    i = i + 1;
+    
+    if(i >= n_place){
+      i = 0;
+    }
+  }
+
+  void(*func)(int) = place_array[i].func;
+  int arg = place_array[i].arg;
+  
+  func(arg);
+  count_place = i;
+}
+
+
+/*void Place::execute(bool flag){
   int i = count_place;
   void(*func)(int) = place_array[i].func;
   int arg = place_array[i].arg;
@@ -57,7 +74,7 @@ void Place::execute(bool flag){
       count_place = 0;
     }
   }
-}
+}*/
 
 void Place::gotoPlace(int i){
   void(*func)(int) = place_array[i].func;
