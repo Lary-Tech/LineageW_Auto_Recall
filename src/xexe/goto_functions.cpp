@@ -118,7 +118,7 @@ void Favorites_Tag2(int place){ //<<<<<<<<<<<<書籤+標誌
   mouse.click(1);
 }
 
-void parkEarth(int place){ //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
+void parkWind(int place){ //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
   Mouse mouse;
   mouse.reset_mouse();
   delay(random(300, 700)); 
@@ -160,18 +160,18 @@ void parkEarth(int place){ //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
 
   mouse.reset_mouse();
   delay(random(300, 700)); 
-  mouse.move(64, 20, 30); //地屬性門口原座標(64, 20, 30)
+  mouse.move(64, 21, 30); //風屬性門口原座標(64, 21, 30)
   delay(100);
   mouse.click(1);
 
   delay(random(300, 700)); 
-  mouse.move(8, 0, 30); //自動移動原座標(72, 20, 30)
+  mouse.move(8, 0, 30); //自動移動原座標(72, 21, 30)
   delay(100);
   mouse.click(1);
   delay(7000);
 
   delay(random(300, 700)); 
-  mouse.move(41, 31, 30); //按進入原座標(111, 53, 30)
+  mouse.move(41, 30, 30); //按進入原座標(113, 51, 30)
   delay(100);
   mouse.click(1);
 
@@ -180,17 +180,20 @@ void parkEarth(int place){ //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
   delay(100);
   mouse.click(1);
   delay(2000);
-
-  /*設定特定地區
+  
+  //設定特定地區
+  mouse.move(48, -27, 30); //小地圖原座標(110, 11 ,30)
+  delay(random(100, 200));
+  mouse.click(1);
   mouse.reset_mouse();
   delay(random(300, 700)); 
-  mouse.move(57, 25, 30); //特定地區"地屬性"原座標
+  mouse.move(67, 17, 30); //特定地區"風屬性"原座標
   delay(100);
   mouse.click(1);
   mouse.move(8, 0, 30); //自動移動原座標
   delay(100);
   mouse.click(1);
-  delay(50000);*/
+  delay(20000);
 
   mouse.reset_mouse();
   delay(random(300, 700)); //<<<<<<<<<<<<<<<
@@ -201,7 +204,7 @@ void parkEarth(int place){ //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
   mouse.move(-30, -30, 30);
 }
 
-void parkWind(int place){ //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
+void parkEarth(int place){ //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
   Mouse mouse;
   mouse.reset_mouse();
   delay(random(300, 700)); 
@@ -243,18 +246,18 @@ void parkWind(int place){ //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
 
   mouse.reset_mouse();
   delay(random(300, 700)); 
-  mouse.move(64, 37, 30); //風屬性門口原座標(64, 37, 30)
+  mouse.move(64, 35, 30); //地屬性門口原座標(64, 35, 30)
   delay(100);
   mouse.click(1);
 
   delay(random(300, 700)); 
-  mouse.move(8, 0, 30); //自動移動原(72, 37, 30)
+  mouse.move(8, 0, 30); //自動移動原(72, 35, 30)
   delay(100);
   mouse.click(1);
   delay(7000);
 
   delay(random(300, 700)); 
-  mouse.move(41, 14, 30); //按進入原座標(111, 49, 30)
+  mouse.move(41, 16, 30); //按進入原座標(113, 51, 30)
   delay(100);
   mouse.click(1);
 
@@ -263,17 +266,22 @@ void parkWind(int place){ //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
   delay(100);
   mouse.click(1);
   delay(2000);
+
   
-/*設定特定地區
+  
+//設定特定地區
+  mouse.move(48, -27, 30); //小地圖原座標(110, 11 ,30)
+  delay(random(100, 200));
+  mouse.click(1);
   mouse.reset_mouse();
   delay(random(300, 700)); 
-  mouse.move(57, 4, 30); //特定地區"風屬性王區"原座標
+  mouse.move(81, 28, 30); //特定地區"地屬性王區"原座標
   delay(100);
   mouse.click(1);
   mouse.move(8, 0, 30); //自動移動原座標
   delay(100);
   mouse.click(1);
-  delay(50000);*/
+  delay(16000);
   
   mouse.reset_mouse();
   delay(random(300, 700)); //<<<<<<<<<<<<<<<
