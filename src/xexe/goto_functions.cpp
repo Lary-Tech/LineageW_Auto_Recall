@@ -160,18 +160,18 @@ void parkEarth(int place){ //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
 
   mouse.reset_mouse();
   delay(random(300, 700)); 
-  mouse.move(62, 22, 30); //地屬性門口原座標(62, 22, 30)
+  mouse.move(64, 20, 30); //地屬性門口原座標(64, 20, 30)
   delay(100);
   mouse.click(1);
 
   delay(random(300, 700)); 
-  mouse.move(8, 0, 30); //自動移動原座標(70, 22, 30)
+  mouse.move(8, 0, 30); //自動移動原座標(72, 20, 30)
   delay(100);
   mouse.click(1);
   delay(7000);
 
   delay(random(300, 700)); 
-  mouse.move(43, 29, 30); //按進入原座標(113, 51, 30)
+  mouse.move(41, 31, 30); //按進入原座標(111, 53, 30)
   delay(100);
   mouse.click(1);
 
@@ -243,18 +243,18 @@ void parkWind(int place){ //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
 
   mouse.reset_mouse();
   delay(random(300, 700)); 
-  mouse.move(62, 35, 30); //風屬性門口原座標(62, 35, 30)
+  mouse.move(64, 37, 30); //風屬性門口原座標(64, 37, 30)
   delay(100);
   mouse.click(1);
 
   delay(random(300, 700)); 
-  mouse.move(8, 0, 30); //自動移動原(70, 35, 30)
+  mouse.move(8, 0, 30); //自動移動原(72, 37, 30)
   delay(100);
   mouse.click(1);
   delay(7000);
 
   delay(random(300, 700)); 
-  mouse.move(43, 16, 30); //按進入原座標(113, 51, 30)
+  mouse.move(41, 14, 30); //按進入原座標(111, 49, 30)
   delay(100);
   mouse.click(1);
 
@@ -326,19 +326,17 @@ void TowerOfInsolence(int place){ //<<<<<<<<<<<<<<<<<<<<<<  1 <= place <= 3
 
   mouse.reset_mouse();
   delay(random(300, 700)); 
-  mouse.move(55, 30, 30); //傲塔1F入口原座標(55, 30, 30)
+  mouse.move(57, 30, 30); //傲塔1F入口原座標(57, 30, 30)
   delay(100);
   mouse.click(1);
   delay(1000);
-  mouse.move(8, 0, 30); //自動移動原座標(63, 30, 30)
+  mouse.move(8, 0, 30); //自動移動原座標(65, 30, 30)
   delay(100);
   mouse.click(1);
   delay(5000);
-  mouse.click(1);
-  delay(random(300, 700)); 
   
   delay(random(300, 700)); 
-  mouse.move(50, 21, 30); //按進入原座標(113, 51, 30)
+  mouse.move(48, 21, 30); //按進入原座標(111, 51, 30)
   delay(1000);
   mouse.click(1);
   delay(1000);

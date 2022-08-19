@@ -114,7 +114,7 @@ void loop()
         delay(random(150, 1250));
 
         // 改圖
-        placeEnglish.execute(placeEnglish.DO_CHANGE_PLACEEnglish);
+        placeEnglish.execute(placeEnglish.DO_NOT_CHANGE_PLACEEnglish);
 
         //查看是否需要等待
         if( place.isWait() ){
