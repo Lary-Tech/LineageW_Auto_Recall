@@ -17,16 +17,10 @@ void marked_locations(int place){ //<<<<<<<<<<<<祝瞬
 
 
   delay(random(300, 700));
-  mouse.move(3, 4 - 3*place, 30);//點按傳送原座標(3, 4, 30)
+  mouse.move(3, 4, 30);//點按傳送原座標(3, 4, 30)
   delay(random(750, 1250));
   mouse.click(1);
 
-  delay(random(300, 700));
-  mouse.move(108, 42, 30); //自動練功原座標(111, 46, 30)
-  delay(1250);
-  mouse.click(1);
-  delay(random(300, 700));
-  mouse.move(-30, -30, 30);
 }
 
 void Favorites_Tag1(int place){ //<<<<<<<<<<<<書籤
@@ -58,13 +52,6 @@ void Favorites_Tag1(int place){ //<<<<<<<<<<<<書籤
   delay(random(300, 700));
   mouse.click(1);
 
-  mouse.reset_mouse();
-  delay(random(300, 700)); //<<<<<<<<<<<<<<<
-  mouse.move(111, 46, 30); //自動練功
-  delay(1250);
-  mouse.click(1);
-  delay(500);
-  mouse.move(-30, -30, 30);
 }
 
 void Favorites_Tag2(int place){ //<<<<<<<<<<<<書籤+標誌

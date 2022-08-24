@@ -1,11 +1,11 @@
 #define LIMIT 600000
 
 #include "place.h"
-#include "placeEnglish.h"
+//#include "placeEnglish.h"
 #include "mouse.h"
 
 Place place;
-PlaceEnglish placeEnglish;
+//PlaceEnglish placeEnglish;
 Mouse mouse;
 
 unsigned long pre_potion;
@@ -24,16 +24,16 @@ void setup()
 
 int trigger_count = 0;
 int change_place_delay = 0;
-int change_placeEnglish_delay = 0;
+//int change_placeEnglish_delay = 0;
 long long int DELAY_TIME = 20000; //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<行走秒數
 void loop()
 {
     bool be_attacked = ( analogRead(0) > 500 ? true : false );   // A25 遭受敵人攻擊了
     bool hp_not_enough = ( analogRead(1) > 500 ? true : false );   // A26 體力不足了
     bool need_potion = ( analogRead(2) > 500 ? true : false );   // A27 需要補充藥水
-    bool en_be_attacked = ( analogRead(3) > 500 ? true : false ); // B0 English 遭受敵人攻擊
+    /*bool en_be_attacked = ( analogRead(3) > 500 ? true : false ); // B0 English 遭受敵人攻擊
     bool en_need_potion = ( analogRead(4) > 500 ? true : false );   // B1 English 需要補充藥水
-    bool en_hp_not_enough = ( analogRead(5) > 500 ? true : false );   // B2 English 體力不足了
+    bool en_hp_not_enough = ( analogRead(5) > 500 ? true : false );   // B2 English 體力不足了*/
 
     bool trigger = ( digitalRead(7) ? 0 : 1 );   // 聽聲音瞬間觸發
 
@@ -64,7 +64,7 @@ void loop()
     }
 
 
-    if( en_be_attacked ){ //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<英文被攻擊
+    /*if( en_be_attacked ){ //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<英文被攻擊
 
         // 回程並購買藥水
         recall();          
@@ -122,7 +122,7 @@ void loop()
         } else {
           change_placeEnglish_delay = 100;
         } 
-    }
+    }*/
     
     if( be_attacked ){ //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<中文被攻擊
 
